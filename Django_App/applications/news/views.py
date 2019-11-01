@@ -1,3 +1,4 @@
+from django.contrib import auth
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.http import Http404, HttpResponseRedirect
@@ -27,7 +28,7 @@ def leave_comment(request, news_id):
         a = News.objects.get(id=news_id)
     except:
         raise Http404("Статья не найдена!")
-    a.comment_set.create(comment_author=request.POST['comment_author'], comment_text=request.POST['comment_text'])
+    a.comment_set.create(comment_author=auth.get_user(request), comment_text=request.POST['comment_text'])
     return HttpResponseRedirect(reverse('news:one_by_one', args=(news_id,)))
 
 

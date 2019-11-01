@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+
 # Create your models here.
 
 
@@ -34,8 +35,8 @@ class News(models.Model):
 
 class Comment(models.Model):
     news = models.ForeignKey(News, on_delete=models.CASCADE)
-    comment_author = models.CharField('Author of the comment', max_length=200)
-    # comment_author = models.ForeignKey(User, on_delete=models.CASCADE())
+    # comment_author = models.CharField('Author of the comment', max_length=200)
+    comment_author = models.ForeignKey(User, on_delete=models.CASCADE)
     comment_text = models.TextField('Content of comment')
     comment_date = models.DateTimeField('Date of publication of the comment', default=timezone.now)
 
