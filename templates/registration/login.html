@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+
+</head>
+<body>
+    {% if form.errors %}
+        Имя пользователя или пароль не верны.
+    {% endif %}
+
+    {% if next %}
+        {% if user.is_authenticated %}
+            У вас нет прав для просмотра содержимого данной страницы.
+        {% else %}
+            Пожалуйста, авторизуйтесь чтобы увидеть содержимое данной страницы.
+        {% endif %}
+    {% endif %}
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        {{ form.username.label_tag }}
+        {{ form.username }}<br><br>
+        {{ form.password.label_tag }}
+        {{ form.password }}<br><br>
+        <input type="submit" value="Авторизоваться">
+        <input type="hidden" name="next" value="{{ next }}"><br><br>
+        <a href="{% url 'password_reset' %}">Забыли пароль?</a>
+    </form>
+
+</body>
+</html>

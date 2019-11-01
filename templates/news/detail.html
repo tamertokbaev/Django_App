@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Футбольные новости {% endblock %}</title>
+</head>
+<body>
+    {% if news %}
+        <strong>{{ news.news_title }}<br><br></strong>
+        {{ news.news_content }} <br><br>
+        <img src="{{ news.img.url }}" alt="{{ news.news_title }}"><br><br>
+        <strong>Тег:</strong> {{ news.news_tag }}<br><br>
+        <strong>Дата публикации:</strong> {{ news.publication_date }}
+        <br><br><br>
+
+        {% if comments_list %}
+            <strong>Комментарии к данной статье:</strong><br><br>
+            {% for comment in comments_list %}
+                <strong>Автор комментария: </strong>{{ comment.comment_author }}<br>
+                <strong>Текст комментария: </strong>{{ comment.comment_text }}<br>
+                <strong>Дата оставления комментария: </strong> {{ comment.comment_date }}<br><br>
+            {% endfor %}
+        {% else %}
+            Комментарии пока отсутствуют, станьте первым кто оставит комментарий!<br><br>
+        {% endif %}
+
+        <form action="{% url 'news:leave_comment' news.id %}" method="post">
+            {% csrf_token %}
+            <input type="text" placeholder="Введите ваше имя" name="comment_author"><br><br>
+            <textarea name="comment_text" placeholder="Текст комментария" rows="3" cols="30"></textarea><br><br>
+            <button type="submit">Оставить комментарии</button><br><br>
+        </form>
+    {%  else %}
+        Новость отсутсвует.
+    {% endif %}
+    <form action="{% url 'news:index' %}" method="get">
+        <button type="submit">Домой</button>
+    </form>
+</body>
+</html>

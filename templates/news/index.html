@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Новости {% endblock %}</title>
+</head>
+<body>
+
+    {% if news_list %}
+        <strong>Список новостей:</strong><br><br><br>
+        {% for i in news_list %}
+            <a href="{%  url 'news:one_by_one' i.id %}" >
+                <strong>{{ i.news_title }}</strong><br>
+            </a>
+            Дата публикации новости: {{ i.publication_date }} <br><br>
+        {% endfor %}
+        {% if user.is_authenticated %}
+            Вы вошли под именем {{ user.username }} <br><br>
+            <a href="/accounts/logout"><input type="submit" value="Выйти"></a>
+        {% else %}
+            <a href="/accounts/login"> <input type="submit" value="Войти"> </a><br><br>
+            <strong>Впервые здесь?</strong> <br><br>
+            <a href="/accounts/register"><input type="submit" value="Зарегистрироваться"></a>
+        {% endif %}
+    {%  else %}
+        Новости пока что отсутствуют.
+    {% endif %}
+</body>
+</html>
