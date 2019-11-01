@@ -30,6 +30,11 @@
             <textarea name="comment_text" placeholder="Текст комментария" rows="3" cols="30"></textarea><br><br>
             <button type="submit">Оставить комментарии</button><br><br>
         </form>
+        {% else %}
+            Войдите в систему чтобы оставить свой комментарий
+            <form action="{% url 'login' %}" method="get">
+                <button type="submit">Войти</button><br><br>
+            </form>
         {% endif %}
     {%  else %}
         Новость отсутсвует.
