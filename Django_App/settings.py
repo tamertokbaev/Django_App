@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'kpl.apps.KplConfig',
     'news.apps.NewsConfig',
     'django.contrib.admin',
     'django.contrib.auth',

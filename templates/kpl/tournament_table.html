@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Новости {% endblock %}</title>
+</head>
+<body>
+
+    {% if club_list %}
+        Турнирная таблица Казахстанской Премьер-Лиги<br><br>
+        <table border="1" cellpadding="5" width="50%" align="center">
+        <tr>
+            <th>Название клуба</th>
+            <th>Количество игр</th>
+            <th>Победы</th>
+            <th>Ничьи</th>
+            <th>Поражения</th>
+            <th>ГЗ</th>
+            <th>ГП</th>
+            <th>Очки</th>
+        </tr>
+            {% for i in club_list %}
+                <tr>
+                    <td><img src="{{ i.club_icon.url }}" width="30" height="30" align="top">  «{{ i.club_name }}»</td>
+                    <td>{{ i.matches_played }}</td>
+                    <td>{{ i.count_of_wins }}</td>
+                    <td>{{ i.count_of_draws }}</td>
+                    <td>{{ i.count_of_loses }}</td>
+                    <td>{{ i.goals_scored }}</td>
+                    <td>{{ i.goals_conceded }}</td>
+                    <td>{{ i.earned_points }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {%  else %}
+        Страница пока что отсутствует.
+    {% endif %}
+</body>
+</html>

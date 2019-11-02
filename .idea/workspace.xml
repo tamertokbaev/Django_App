@@ -42,8 +42,13 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Documents/GitHub/Football-News-Portal" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DjangoForStudents-master" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="OPEN_URL_DIALOG">
+      <recent name="https://github.com/tamertokbaev/Django_App.git" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -108,7 +113,10 @@
       <workItem from="1572333743036" duration="2078000" />
       <workItem from="1572359773581" duration="7657000" />
       <workItem from="1572450219324" duration="4526000" />
-      <workItem from="1572605127012" duration="5683000" />
+      <workItem from="1572605127012" duration="12083000" />
+      <workItem from="1572632946606" duration="2061000" />
+      <workItem from="1572673091683" duration="1829000" />
+      <workItem from="1572685646562" duration="13357000" />
     </task>
     <servers />
   </component>
