@@ -5,9 +5,15 @@
     <title>Календарь игр</title>
 </head>
 <body>
-    {% if cycle_year %}
-        {% for i in cycle_year %}
-
+    <a href="/"><button type="submit">Домашняя страница</button></a>
+    <a href="/kaz-premier-league/"><button type="submit">Турнирная таблица</button> </a><br><br>
+    {% if tours %}
+        {% for i in tours %}
+            {{ i.0.tour_id }} - тур<br><br>
+            {% for j in i %}
+                {{ j.home_team }} <strong>{{ j.home_goals }}:{{ j.away_goals }} </strong>{{ j.away_team }}<br>
+            {% endfor %}
+            <br>
         {% endfor %}
     {% else %}
         Календарь турнира отсутствует

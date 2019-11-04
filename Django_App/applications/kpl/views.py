@@ -14,13 +14,13 @@ def tournament_table(request):
 
 def show_calendar(request):
     counter = 1
-    context = {}
+    tours = []
     for i in range(33):
-        cycle = GameCycle.objects.get(tour_id=counter)
+        cycle = GameCycle.objects.filter(tour_id=counter)
         counter += 1
         games_in_single_tour = []
         for j in cycle:
             games_in_single_tour.append(j)
-        context.update({str(cycle.tour_id): games_in_single_tour})
-    print(context)
+        tours.append(games_in_single_tour)
+    context = {'tours': tours}
     return render(request, 'kpl/calendar.html', context)
