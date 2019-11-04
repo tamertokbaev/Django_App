@@ -40,4 +40,4 @@ class Comment(models.Model):
     comment_date = models.DateTimeField('Date of publication of the comment', default=timezone.now)
 
     def __str__(self):
-        return self.comment_author + ' ' + str(self.news.id) + ' ' + str(self.comment_date)
+        return self.comment_author.username + ' ' + str(self.news.id) + ' ' + str(self.comment_date)
