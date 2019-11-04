@@ -5,7 +5,8 @@
     <title>{% block title %} Новости {% endblock %}</title>
 </head>
 <body>
-
+    <a href="/"><button type="submit">Домашняя страница</button> </a>
+    <a href="kaz-premier-league/"><button type="submit">Казахстанская Премьер-лига</button> </a><br><br>
     {% if news_list %}
         <strong>Список новостей:</strong><br><br><br>
         {% for i in news_list %}

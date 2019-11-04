@@ -29,4 +29,3 @@ class GameCycle(models.Model):
 
     def __str__(self):
         return str(self.tour_id) + ' ' + str(self.home_team) + ' VS ' + str(self.away_team)
-
