@@ -11,7 +11,7 @@ from .models import News, Comment
 
 
 def index(request):
-    news_list = News.objects.all()
+    news_list = News.objects.order_by('-count_of_views')[:8]
 
     return render(request, 'news/index.html', {'news_list': news_list})
 
@@ -19,6 +19,8 @@ def index(request):
 def one_by_one(request, news_id):
     try:
         a = News.objects.get(id=news_id)
+        a.count_of_views += 1
+        a.save()
     except:
         raise Http404("Статья не найдена!")
     comment_list = a.comment_set.all()
@@ -60,3 +62,22 @@ class RegistrationForm(FormView):
         # if everything is clear during registration, we will add this user into a database
         form.save()
         return super(RegistrationForm, self).form_valid(form)
+
+
+def archive(request):
+    try:
+        news_list = News.objects.order_by('publication_date')
+    except:
+        raise Http404('Список новостей пуст')
+    return render(request, 'news/archive.html', {'news_list': news_list})
+
+
+def search(request):
+    all_news = []
+    try:
+        if request.method == 'POST':
+            search_str = request.POST['searching_line']
+            all_news = News.objects.filter(news_content__icontains=search_str) .filter(news_content__icontains=search_str)
+        return render(request, 'news/search.html', {'all_news': all_news})
+    except:
+        return render(request, 'news/search.html', {})

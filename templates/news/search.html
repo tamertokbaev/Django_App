@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Результаты поиска</title>
+</head>
+<body>
+    <a href="/"><button type="submit">Домашняя страница</button> </a>
+    <a href="/kaz-premier-league/"><button type="submit">Казахстанская Премьер-лига</button> </a>
+    <a href="/archive/"><button type="submit">Архив новостей</button></a><br><br>
+    {% if all_news %}
+        <strong>Результаты поиска:</strong><br><br>
+        {% for i in all_news %}
+            <a href="{% url 'news:one_by_one' i.id %}">
+                {{ i.news_title }}<br>
+            </a>
+            <strong>Дата публикации:</strong> {{ i.publication_date }}<br>
+            <strong>Тег: </strong>{{ i.news_tag }}<br><br>
+        {% endfor %}
+    {% else %}
+        <strong>По результатам поиска ничего не было найдено</strong>
+    {% endif %}
+</body>
+</html>

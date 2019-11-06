@@ -9,9 +9,9 @@
         <strong>{{ news.news_title }}<br><br></strong>
         {{ news.news_content }} <br><br>
         <img src="{{ news.img.url }}" alt="{{ news.news_title }}"><br><br>
-        {{ news.img.url }}
         <strong>Тег:</strong> {{ news.news_tag }}<br><br>
-        <strong>Дата публикации:</strong> {{ news.publication_date }}
+        <strong>Дата публикации:</strong> {{ news.publication_date }}<br>
+        <strong>Количество просмотров данной новости:</strong> {{ news.count_of_views }}
         <br><br><br>
 
         {% if comments_list %}

@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils import timezone
 
 
 class Club(models.Model):
@@ -12,6 +11,7 @@ class Club(models.Model):
     goals_scored = models.IntegerField(default=0)
     goals_conceded = models.IntegerField(default=0)
     earned_points = models.IntegerField(default=0)
+    started_points = models.IntegerField(default=0)
 
     def __str__(self):
         return str(self.club_name)
