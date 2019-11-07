@@ -1,19 +1,19 @@
 from django.contrib import auth
-from django.contrib.auth.forms import UserCreationForm
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, render_to_response
 from django.http import Http404, HttpResponseRedirect
+from django.template.context_processors import csrf
 from django.urls import reverse
-from django.views.generic import FormView
-
-from .models import News, Comment
-# Create your views here.
+from .models import News
+from .forms import CustomRegistrationForm
 
 
+# Данная функция используется для показа содержимого главной страницы
 def index(request):
     news_list = News.objects.order_by('-count_of_views')[:8]
     return render(request, 'news/index.html', {'news_list': news_list})
 
 
+# Данная функция используется для показа определенной новости по ссылке в urls.py news/<int:news_id>
 def one_by_one(request, news_id):
     try:
         a = News.objects.get(id=news_id)
@@ -25,6 +25,7 @@ def one_by_one(request, news_id):
     return render(request, 'news/detail.html', {'news': a, 'comments_list': comment_list})
 
 
+# Данная функция используется для оставления комментария в новосте по ссылке news/<int:news_id>
 def leave_comment(request, news_id):
     try:
         a = News.objects.get(id=news_id)
@@ -34,34 +35,26 @@ def leave_comment(request, news_id):
     return HttpResponseRedirect(reverse('news:one_by_one', args=(news_id,)))
 
 
-# def register(request):
-#     if request.method == 'POST':
-#         first_name = request.POST['first_name']
-#         last_name = request.POST['last_name']
-#         email = request.POST['email']
-#         username = request.POST['username']
-#         password = request.POST['password']
-#
-#         user = User(password=User.set_password(password), username=username, first_name=first_name, last_name=last_name,
-#                     email=email)
-#         user.save()
+# Данная функция используется для регистрации нового пользователя при помощи кастомной форм CustomRegistrationForm в
+# forms.py
+def register_user(request):
+    if request.method == 'POST':
+        form = CustomRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+            return HttpResponseRedirect('/accounts/login')
+        else:
+            return render_to_response('invalid_reg.html')
+
+    args = {}
+    args.update(csrf(request))
+
+    args['form'] = CustomRegistrationForm()
+    return render_to_response('register.html', args)
 
 
-class RegistrationForm(FormView):
-    form_class = UserCreationForm
-
-    # After registration of a new user, client will be redirected to this URL
-    success_url = '/accounts/login'
-
-    # Template that is used to show registration page
-    template_name = 'register.html'
-
-    def form_valid(self, form):
-        # if everything is clear during registration, we will add this user into a database
-        form.save()
-        return super(RegistrationForm, self).form_valid(form)
-
-
+# Данная функция используется для показа всех новостей по дате публикации на новой странице
 def archive(request):
     try:
         news_list = News.objects.order_by('publication_date')
@@ -70,6 +63,8 @@ def archive(request):
     return render(request, 'news/archive.html', {'news_list': news_list})
 
 
+# Данная функция используется для поиска на главной странице по содержимому и заголовку новости
+# Возможны результаты больше чем 1, отображается на отдельной странице search.html
 def search(request):
     all_news = []
     try:
