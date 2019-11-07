@@ -39,6 +39,8 @@ def tournament_table(request):
         i.goals_scored = goals_scored
         i.goals_conceded = goals_conceded
         i.earned_points = count_of_wins*3 + count_of_draws + i.started_points
+        i.save()
+    clubs = Club.objects.order_by('-earned_points')
     return render(request, 'kpl/tournament_table.html', {'club_list': clubs})
 
 

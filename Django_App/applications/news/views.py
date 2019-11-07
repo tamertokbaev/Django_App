@@ -1,6 +1,5 @@
 from django.contrib import auth
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.http import Http404, HttpResponseRedirect
 from django.urls import reverse
@@ -12,7 +11,6 @@ from .models import News, Comment
 
 def index(request):
     news_list = News.objects.order_by('-count_of_views')[:8]
-
     return render(request, 'news/index.html', {'news_list': news_list})
 
 

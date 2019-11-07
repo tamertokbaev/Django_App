@@ -28,4 +28,5 @@ class GameCycle(models.Model):
     away_goals = models.IntegerField(default=0)
 
     def __str__(self):
-        return str(self.tour_id) + ' ' + str(self.home_team) + ' VS ' + str(self.away_team)
+        return str(self.tour_id) + ' ' + str(self.home_team) + ' ' + str(self.home_goals) + ':' + ' '\
+               + str(self.away_goals) + ' ' + str(self.away_team)

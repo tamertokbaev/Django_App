@@ -42,7 +42,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DjangoForStudents-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
@@ -125,7 +125,11 @@
       <workItem from="1572935095190" duration="87000" />
       <workItem from="1572938259302" duration="1693000" />
       <workItem from="1573029989038" duration="471000" />
-      <workItem from="1573045300041" duration="12172000" />
+      <workItem from="1573045300041" duration="12437000" />
+      <workItem from="1573105468413" duration="2184000" />
+      <workItem from="1573115780175" duration="177000" />
+      <workItem from="1573121420176" duration="1335000" />
+      <workItem from="1573147768426" duration="459000" />
     </task>
     <servers />
   </component>
