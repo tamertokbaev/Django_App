@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Личный кабинет</title>
+</head>
+<body>
+    <a href="/"><button type="submit">Домашняя страница</button> </a>
+    <a href="/kaz-premier-league/"><button type="submit">Казахстанская Премьер-лига</button> </a>
+    <a href="/archive/"><button type="submit">Архив новостей</button></a><br><br>
+    <strong><h1>Профиль</h1></strong>
+    {% if user.is_authenticated %}
+        <strong>Никнейм:</strong> {{ user.username }}<br>
+        <strong>Имя:</strong> {{ user.first_name }}<br>
+        <strong>Фамилия:</strong> {{ user.last_name }}<br>
+        <strong>Электронная почта:</strong> {{ user.email }}<br>
+        <strong>Дата регистрации:</strong> {{ user.date_joined }}<br><br><br>
+        <a href="/accounts/edit_profile"><button type="submit">Редактировать</button></a>
+    {% else %}
+        Ошибка
+    {% endif %}
+</body>
+</html>

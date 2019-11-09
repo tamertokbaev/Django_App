@@ -10,5 +10,7 @@ urlpatterns = [
     path('accounts/register/', views.register_user, name='register'),
     path('archive/', views.archive, name='archive'),
     path('search/', views.search, name='search'),
-    path('accounts/confirming_registration', views.confirming_register, name='reg_confirm')
+    path('accounts/confirming_registration', views.confirming_register, name='reg_confirm'),
+    path('accounts/profile/', views.show_profile, name='profile'),
+    path('accounts/edit_profile', views.edit_profile, name='edit_profile'),
 ]

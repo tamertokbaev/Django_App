@@ -108,3 +108,29 @@ def confirming_register(request):
             return render(request, 'news/confirm.html',
                           {'result': 'Секретный код был введен неверно! Регистрация отменена!'})
     return render(request, 'news/confirm.html', {})
+
+
+def show_profile(request):
+    return render(request, 'news/profile.html', {})
+
+
+def edit_profile(request):
+    try:
+        if request.method == 'POST':
+            print(request.POST['username'])
+            username = str(request.POST['username'])
+            first_name = str(request.POST['first_name'])
+            last_name = str(request.POST['last_name'])
+            if username.strip().count(" ") >= 1:
+                return render(request, 'news/edit_profile.html',
+                              {'result': "Имя пользователя не должно содержать пробелы"})
+            user = auth.get_user(request)
+            user.username = username.strip()
+            user.first_name = first_name.strip()
+            user.last_name = last_name.strip()
+            user.save()
+            return render(request, 'news/edit_profile.html', {'user': user,
+                                                              'result': 'Ваш профиль был успешно изменен'})
+    except:
+        raise Http404('Упс... Что-то пошло не так...')
+    return render(request, 'news/edit_profile.html', {})

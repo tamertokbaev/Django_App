@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактировать профиль</title>
+</head>
+<body>
+    <a href="/"><button type="submit">Домашняя страница</button> </a>
+    <a href="/kaz-premier-league/"><button type="submit">Казахстанская Премьер-лига</button> </a>
+    <a href="/archive/"><button type="submit">Архив новостей</button></a>
+    {% if user.is_authenticated %}
+        <a href="/accounts/profile/"><button type="submit">Профиль</button></a><br><br>
+        <h1>Редактировать профиль</h1>
+        <form method="post" action="{% url 'news:edit_profile' %}">
+            {% csrf_token %}
+            Никнейм: <input type="text" name="username" size="40" placeholder="Никнейм" value="{{ user.username }}"><br><br>
+            Имя:     <input type="text" name="first_name" size="40" placeholder="Имя" value="{{ user.first_name }}"><br><br>
+            Фамилия: <input type="text" name="last_name" size="40" placeholder="Фамилия" value="{{ user.last_name }}"><br><br>
+            <button type="submit">Изменить</button>
+        </form><br><br>
+        {% if result %}
+            {{ result }}<br><br>
+        {% endif %}
+        <form method="post">
+            <button type="submit">Изменить пароль</button>
+        </form>
+    {% else %}
+        Войдите, чтобы получить возможность редактировать профиль!<br>
+        <a href="/accounts/login/"><button type="submit">Войти</button> </a>
+    {% endif %}<br><br>
+
+</body>
+</html>
