@@ -1,8 +1,13 @@
 from django.contrib import auth
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, render_to_response
 from django.http import Http404, HttpResponseRedirect
 from django.template.context_processors import csrf
 from django.urls import reverse
+from django.core.mail import send_mail
+
+from random import randint
+
 from .models import News
 from .forms import CustomRegistrationForm
 
@@ -42,14 +47,26 @@ def register_user(request):
         form = CustomRegistrationForm(request.POST)
         if form.is_valid():
             form.save()
+            secret_code = randint(1000, 9999)
+            head_of_message = 'Подтверждение регистрации на Football-News-Portal'
+            content_of_message = """
+                Здравствуйте, ваш электронный адрес был выбран для регистрации на Football News Portal 
+                Ваш секретный код: {} 
 
-            return HttpResponseRedirect('/accounts/login')
+                Если вы не регистрировались на Football-News-Portal, то пожалуйста просто проигнорируйте это письмо!
+                С уважением, Тамерлан Токбаев!
+                """.format(secret_code)
+            send_mail(head_of_message, content_of_message, "Tamerlan's website",
+                      recipient_list=[form.cleaned_data['email']]
+                      , fail_silently=False)
+            request.session.update({'form': {'username': form.cleaned_data['username'],
+                                             'secret_code': secret_code}})
+            # form.save()
+            return HttpResponseRedirect('/accounts/confirming_registration')
         else:
-            return render_to_response('invalid_reg.html')
-
+            return render_to_response('register.html', {'form': form})
     args = {}
     args.update(csrf(request))
-
     args['form'] = CustomRegistrationForm()
     return render_to_response('register.html', args)
 
@@ -70,7 +87,24 @@ def search(request):
     try:
         if request.method == 'POST':
             search_str = request.POST['searching_line']
-            all_news = News.objects.filter(news_content__icontains=search_str) .filter(news_content__icontains=search_str)
+            all_news = News.objects.filter(news_content__icontains=search_str).filter(
+                news_content__icontains=search_str)
         return render(request, 'news/search.html', {'all_news': all_news})
     except:
         return render(request, 'news/search.html', {})
+
+
+# Подтверждение регистрации через электронную почту
+def confirming_register(request):
+    session = request.session
+    if request.method == 'POST':
+        if session['form']['secret_code'] == int(request.POST['code_by_user']):
+            username = session['form']['username']
+            user = User.objects.get(username=username)
+            user.is_active = True
+            user.save()
+            return HttpResponseRedirect('/accounts/login')
+        else:
+            return render(request, 'news/confirm.html',
+                          {'result': 'Секретный код был введен неверно! Регистрация отменена!'})
+    return render(request, 'news/confirm.html', {})

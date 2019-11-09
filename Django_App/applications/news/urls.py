@@ -9,6 +9,6 @@ urlpatterns = [
     path('news/<int:news_id>/leave_comment', views.leave_comment, name='leave_comment'),
     path('accounts/register/', views.register_user, name='register'),
     path('archive/', views.archive, name='archive'),
-    # path('search/<slug:search_str>/', views.search, name='search')
     path('search/', views.search, name='search'),
+    path('accounts/confirming_registration', views.confirming_register, name='reg_confirm')
 ]

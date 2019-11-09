@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Подтверждение регистрации</title>
+</head>
+<body>
+    Для завершения регистрации мы выслали Вам электронное письмо с 4-х значным кодом.
+    Прошу ввести его здесь для завершения регистрации!<br>
+    <form action="{% url 'news:reg_confirm'%}" method="post">
+        {% csrf_token %}
+        <input type="number" name="code_by_user">
+        <button type="submit">Отправить</button>
+    </form>
+    {% if result %}
+        {{ result}}
+    {% endif %}
+</body>
+</html>
