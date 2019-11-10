@@ -11,7 +11,7 @@
     {% if user.is_authenticated %}
         <a href="/accounts/profile/"><button type="submit">Профиль</button></a><br><br>
         <h1>Редактировать профиль</h1>
-        <form method="post" action="{% url 'news:edit_profile' %}">
+        <form method="post" action="{% url 'news:edit_profile' %}" name="main_info">
             {% csrf_token %}
             Никнейм: <input type="text" name="username" size="40" placeholder="Никнейм" value="{{ user.username }}"><br><br>
             Имя:     <input type="text" name="first_name" size="40" placeholder="Имя" value="{{ user.first_name }}"><br><br>
@@ -25,7 +25,8 @@
             <button type="submit">Изменить пароль</button>
         </form>
     {% else %}
-        Войдите, чтобы получить возможность редактировать профиль!<br>
+        <br><br>
+        Войдите, чтобы получить возможность редактировать профиль!<br><br>
         <a href="/accounts/login/"><button type="submit">Войти</button> </a>
     {% endif %}<br><br>
 
