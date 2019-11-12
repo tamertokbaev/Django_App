@@ -16,7 +16,7 @@ def parse_news(headers, base_url):
         soup = bs(request.content, 'html.parser')
         divs = soup.find_all('div', attrs={'class': 'item item-left'})
         for div in divs:
-            title = div.find('div', attrs={'class': 'h'}).text
+            title = div.find('div', attrs={'class': 'h'}).text  
             print(title)
     elif request.status_code == 404:
         print('Something went wrong')
