@@ -15,7 +15,8 @@
         <strong>Фамилия:</strong> {{ user.last_name }}<br>
         <strong>Электронная почта:</strong> {{ user.email }}<br>
         <strong>Дата регистрации:</strong> {{ user.date_joined }}<br><br><br>
-        <a href="/accounts/edit_profile"><button type="submit">Редактировать</button></a>
+        <a href="/accounts/edit_profile"><button type="submit">Редактировать</button></a><br><br>
+        <a href="/accounts/profile/favourites"><button type="submit">Избранное</button></a>
     {% else %}
         Ошибка
     {% endif %}

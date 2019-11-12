@@ -41,3 +41,8 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.comment_author.username + ' ' + str(self.news.id) + ' ' + str(self.comment_date)
+
+
+class UserFavourite(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='User_ID')
+    fav_news = models.ForeignKey(News, on_delete=models.CASCADE, related_name='Fav_news_ID')

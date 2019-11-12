@@ -8,7 +8,7 @@ from django.core.mail import send_mail
 
 from random import randint
 
-from .models import News
+from .models import News, UserFavourite
 from .forms import CustomRegistrationForm
 
 
@@ -21,13 +21,21 @@ def index(request):
 # Данная функция используется для показа определенной новости по ссылке в urls.py news/<int:news_id>
 def one_by_one(request, news_id):
     try:
+        context = {}
         a = News.objects.get(id=news_id)
         a.count_of_views += 1
         a.save()
+        if auth.get_user(request).is_authenticated:
+            if UserFavourite.objects.filter(fav_news=a, user=auth.get_user(request)).exists():
+                context.update({'favourite': "Удалить из избранного"})
+            else:
+                context.update({'favourite': "Добавить в избранное"})
     except:
         raise Http404("Статья не найдена!")
     comment_list = a.comment_set.all()
-    return render(request, 'news/detail.html', {'news': a, 'comments_list': comment_list})
+    context.update({'news': a})
+    context.update({'comments_list': comment_list})
+    return render(request, 'news/detail.html', context)
 
 
 # Данная функция используется для оставления комментария в новосте по ссылке news/<int:news_id>
@@ -134,3 +142,29 @@ def edit_profile(request):
     except:
         raise Http404('Упс... Что-то пошло не так...')
     return render(request, 'news/edit_profile.html', {})
+
+
+def add_to_favourites(request, news_id):
+    try:
+        if auth.get_user(request).is_authenticated:
+            if UserFavourite.objects.filter(fav_news=News.objects.get(id=news_id), user=auth.get_user(request)).exists():
+                UserFavourite.objects.filter(fav_news=News.objects.get(id=news_id), user=auth.get_user(request)).delete()
+            else:
+                UserFavourite.objects.create(user=auth.get_user(request), fav_news=News.objects.get(id=news_id))
+    except:
+        raise Http404('Возможно ваша статья была удалена или навсегда перемещена!')
+    return HttpResponseRedirect(reverse('news:one_by_one', args=(news_id,)))
+
+
+def show_favourites(request):
+    context = {}
+    try:
+        user = auth.get_user(request)
+        fav_list = UserFavourite.objects.filter(user=user)
+        news_list = []
+        for fav_news in fav_list:
+            news_list.append(News.objects.get(id=fav_news.fav_news.id))
+        context.update({'news_list': news_list})
+    except:
+        context.update({'error': 'Войдите в систему чтобы получить доступ к избранным новостям!'})
+    return render(request, 'news/show_favs.html', context)

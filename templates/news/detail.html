@@ -11,8 +11,16 @@
         <img src="{{ news.img.url }}" alt="{{ news.news_title }}"><br><br>
         <strong>Тег:</strong> {{ news.news_tag }}<br><br>
         <strong>Дата публикации:</strong> {{ news.publication_date }}<br>
-        <strong>Количество просмотров данной новости:</strong> {{ news.count_of_views }}
-        <br><br><br>
+        <strong>Количество просмотров данной новости:</strong> {{ news.count_of_views }}<br><br>
+
+        {% if user.is_authenticated %}
+            <form method="post" action="{% url 'news:add_to_fav' news.id %}">
+                {% csrf_token %}
+                <button type="submit">
+                    {{ favourite }}
+                </button>
+            </form><br><br>
+        {% endif %}
 
         {% if comments_list %}
             <strong>Комментарии к данной статье:</strong><br><br>

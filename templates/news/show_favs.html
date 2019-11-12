@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Избранные новости</title>
+</head>
+<body>
+    <a href="/"><button type="submit">Домашняя страница</button> </a>
+    <a href="/kaz-premier-league/"><button type="submit">Казахстанская Премьер-лига</button> </a>
+    <a href="/archive/"><button type="submit">Архив новостей</button></a>
+    <a href="/accounts/profile"><button type="submit">Профиль</button></a>
+    <br><br>
+
+    {% if user.is_authenticated %}
+        {% if news_list %}
+            {% for i in news_list %}
+                <a href="{%  url 'news:one_by_one' i.id %}" ><strong>{{ i.news_title }}</strong><br></a>
+                Дата публикации новости: {{ i.publication_date }} <br><br>
+            {% endfor %}
+        {% else %}
+            Вы пока не добавили ни одну новость в избранное!
+        {% endif %}
+    {% else %}
+        Войдите в систему чтобы посмотреть ваши избранные новости!
+    {% endif %}
+</body>
+</html>
