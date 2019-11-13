@@ -41,6 +41,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../BAD" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
@@ -48,6 +49,11 @@
   <component name="RecentsManager">
     <key name="OPEN_URL_DIALOG">
       <recent name="https://github.com/tamertokbaev/Django_App.git" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\Study process\Projects [Python]\Django_App\media" />
+      <recent name="C:\Users\User\Desktop\Study process\Projects [Python]\Django_App\media\images" />
+      <recent name="C:\Users\User\Desktop\Study process\Projects [Python]\Django_App\media\images\avatars" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -165,7 +171,11 @@
       <workItem from="1573480020909" duration="558000" />
       <workItem from="1573540384347" duration="2710000" />
       <workItem from="1573544695399" duration="33000" />
-      <workItem from="1573563502202" duration="12715000" />
+      <workItem from="1573563502202" duration="12923000" />
+      <workItem from="1573623098065" duration="4007000" />
+      <workItem from="1573632425849" duration="2923000" />
+      <workItem from="1573640878461" duration="90000" />
+      <workItem from="1573640997306" duration="2111000" />
     </task>
     <servers />
   </component>

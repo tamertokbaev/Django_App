@@ -14,5 +14,6 @@ urlpatterns = [
     path('accounts/confirming_registration', views.confirming_register, name='reg_confirm'),
     path('accounts/profile/', views.show_profile, name='profile'),
     path('accounts/edit_profile', views.edit_profile, name='edit_profile'),
-    path('accounts/profile/favourites', views.show_favourites, name='show_favourites')
+    path('accounts/profile/favourites', views.show_favourites, name='show_favourites'),
+    path('accounts/profile/change_avatar', views.profile_avatar, name='change_avatar')
 ]

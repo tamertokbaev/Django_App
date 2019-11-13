@@ -125,7 +125,6 @@ def show_profile(request):
 def edit_profile(request):
     try:
         if request.method == 'POST':
-            print(request.POST['username'])
             username = str(request.POST['username'])
             first_name = str(request.POST['first_name'])
             last_name = str(request.POST['last_name'])
@@ -168,3 +167,15 @@ def show_favourites(request):
     except:
         context.update({'error': 'Войдите в систему чтобы получить доступ к избранным новостям!'})
     return render(request, 'news/show_favs.html', context)
+
+
+def profile_avatar(request):
+    try:
+        if request.method == 'POST':
+            user = request.user
+            avatar = request.FILES['avatar']
+            user.profile.avatar = request.FILES['avatar']
+            user.save()
+    except:
+        raise Http404("Возникла ошибка! Возможно этот пользователь был удален!")
+    return HttpResponseRedirect(reverse('news:profile'))
