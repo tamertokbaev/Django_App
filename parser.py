@@ -15,6 +15,8 @@ def parse_news(headers, base_url):
         print('Parsing is doing...')
         soup = bs(request.content, 'html.parser')
         divs = soup.find_all('div', attrs={'class': 'item item-left'})
+        print(divs)
+        print()
         for div in divs:
             title = div.find('div', attrs={'class': 'h'}).text  
             print(title)

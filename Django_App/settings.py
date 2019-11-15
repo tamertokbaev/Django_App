@@ -125,6 +125,7 @@ USE_TZ = True
 
 # Redirects a user after verifying to the home page.
 LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/

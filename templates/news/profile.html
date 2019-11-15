@@ -10,7 +10,7 @@
     <a href="/archive/"><button type="submit">Архив новостей</button></a><br><br>
     <strong><h1>Профиль</h1></strong>
     {% if user.is_authenticated %}
-        <img src="{{ user.profile.avatar.url }}" alt="Фотография профиля" height="250px" width="250px"><br><br>
+        <img src="{{ user.profile.avatar.url }}" alt="Фотография профиля" height="150px" width="200px"><br><br>
         <form method="post" action="{% url 'news:change_avatar' %}" enctype="multipart/form-data">
             {% csrf_token %}
             <input type="file" accept="image/*" name="avatar" required><br><br>
