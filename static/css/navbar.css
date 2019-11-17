@@ -1,0 +1,45 @@
+#page_align{
+	padding-top: 10px;
+	background-color: #B6D5E6;
+	width: 100%;
+	border-bottom: 5px solid #2E2532;
+}
+
+#page_align ul{
+	display: flex;
+	padding: 0px;
+	justify-content: center; 
+}
+
+#page_align li{
+	list-style: none;
+	padding: 10px;
+}
+
+#page_align a{
+	text-decoration: none;
+	font-size: 14px;
+	color: #000;
+	margin-right: 10px;
+}
+
+#page_align a:hover{
+	color: white;
+}
+
+#page_align input{
+	background-color: white;
+}
+
+#search{
+	margin-bottom: 0px;
+	margin-top: -5px;
+}
+#search button{
+	margin-top: -9px;
+	margin-left: -1px;
+}
+
+a{
+	text-decoration: none;
+}

@@ -14,8 +14,11 @@ from .forms import CustomRegistrationForm
 
 # Данная функция используется для показа содержимого главной страницы
 def index(request):
-    news_list = News.objects.order_by('-count_of_views')[:8]
-    return render(request, 'news/index.html', {'news_list': news_list})
+    news_list = News.objects.order_by('-count_of_views')[:3]
+    another_list = News.objects.order_by('-count_of_views')[3:9]
+    latest_news = News.objects.order_by('-publication_date')[:4]
+    return render(request, 'news/index.html', {'news_list': news_list, 'latest_news': latest_news,
+                                               'another_list': another_list})
 
 
 # Данная функция используется для показа определенной новости по ссылке в urls.py news/<int:news_id>
@@ -94,7 +97,7 @@ def search(request):
     all_news = []
     try:
         if request.method == 'POST':
-            search_str = request.POST['searching_line']
+            search_str = request.POST['search']
             all_news = News.objects.filter(news_content__icontains=search_str).filter(
                 news_content__icontains=search_str)
         return render(request, 'news/search.html', {'all_news': all_news})

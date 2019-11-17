@@ -43,7 +43,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/parser_sports.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DjangoForStudents-master" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
@@ -51,9 +51,14 @@
       <recent name="https://github.com/tamertokbaev/Django_App.git" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\Study process\Projects [Python]\Django_App\templates\news" />
+      <recent name="C:\Users\User\Desktop\Study process\Projects [Python]\Django_App" />
+      <recent name="C:\Users\User\Desktop\Study process\Projects [Python]\Django_App\Django_App" />
       <recent name="C:\Users\User\Desktop\Study process\Projects [Python]\Django_App\media" />
       <recent name="C:\Users\User\Desktop\Study process\Projects [Python]\Django_App\media\images" />
-      <recent name="C:\Users\User\Desktop\Study process\Projects [Python]\Django_App\media\images\avatars" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\Study process\Projects [Python]\Django_App\templates\news" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -204,7 +209,10 @@
       <workItem from="1573718228380" duration="2144000" />
       <workItem from="1573725964259" duration="2970000" />
       <workItem from="1573824200961" duration="84000" />
-      <workItem from="1573824341227" duration="3706000" />
+      <workItem from="1573824341227" duration="7969000" />
+      <workItem from="1573882156639" duration="6046000" />
+      <workItem from="1573907351371" duration="1427000" />
+      <workItem from="1573979056574" duration="6893000" />
     </task>
     <servers />
   </component>

@@ -131,6 +131,10 @@ LOGOUT_REDIRECT_URL = '/'
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    '/'
+]
 
 # EMail DJANGO settings
 EMAIL_USE_TLS = True
