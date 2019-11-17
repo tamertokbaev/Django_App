@@ -32,7 +32,7 @@
                         <div class="top-header-content d-flex align-items-center justify-content-between">
                             <!-- Logo -->
                             <div class="logo">
-                                <a href="index.html"><img src="{% static 'img/core-img/logo.png' %}" alt=""></a>
+                                <a href="{% url 'news:index' %}"><img src="{% static 'img/core-img/logo.png' %}" alt=""></a>
                             </div>
 
                             <!-- Login Search Area -->
@@ -45,8 +45,8 @@
                                     </div>
                                 {% else %}
                                     <div class="login d-flex">
-                                        <a href="{% url 'login' %}">Login</a>
-                                        <a href="{% url 'news:register' %}">Register</a>
+                                        <a href="{% url 'login' %}">Войти</a>
+                                        <a href="{% url 'news:register' %}">Зарегистрироваться</a>
                                     </div>
                                 {% endif %}
                                 <!-- Search Form -->
@@ -73,7 +73,7 @@
 
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="index.html"><img src="{% static 'img/core-img/logo.png' %}" alt=""></a>
+                            <a href="{% url 'news:index' %}"><img src="{% static 'img/core-img/logo.png' %}" alt=""></a>
                         </div>
 
                         <!-- Navbar Toggler -->
@@ -92,7 +92,7 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li class="active"><a href="index.html">Домашняя страница</a></li>
+                                    <li class="active"><a href="{% url 'news:index' %}">Домашняя страница</a></li>
                                     <li><a href="#">Казахстанская премьер лига</a>
                                         <ul class="dropdown">
                                             <li><a href="#">Новости</a></li>

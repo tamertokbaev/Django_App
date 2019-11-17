@@ -50,15 +50,15 @@
     <key name="OPEN_URL_DIALOG">
       <recent name="https://github.com/tamertokbaev/Django_App.git" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\Study process\Projects [Python]\Django_App\templates\news" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\User\Desktop\Study process\Projects [Python]\Django_App\templates\news" />
       <recent name="C:\Users\User\Desktop\Study process\Projects [Python]\Django_App" />
       <recent name="C:\Users\User\Desktop\Study process\Projects [Python]\Django_App\Django_App" />
       <recent name="C:\Users\User\Desktop\Study process\Projects [Python]\Django_App\media" />
       <recent name="C:\Users\User\Desktop\Study process\Projects [Python]\Django_App\media\images" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\User\Desktop\Study process\Projects [Python]\Django_App\templates\news" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -212,7 +212,8 @@
       <workItem from="1573824341227" duration="7969000" />
       <workItem from="1573882156639" duration="6046000" />
       <workItem from="1573907351371" duration="1427000" />
-      <workItem from="1573979056574" duration="6893000" />
+      <workItem from="1573979056574" duration="7013000" />
+      <workItem from="1573994966059" duration="7388000" />
     </task>
     <servers />
   </component>

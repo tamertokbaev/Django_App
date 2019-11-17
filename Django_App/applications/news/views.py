@@ -8,7 +8,7 @@ from django.core.mail import send_mail
 
 from random import randint
 
-from .models import News, UserFavourite
+from .models import News, UserFavourite, Comment
 from .forms import CustomRegistrationForm
 
 
@@ -26,6 +26,7 @@ def one_by_one(request, news_id):
     try:
         context = {}
         a = News.objects.get(id=news_id)
+        count =  a.comment_set.count()
         a.count_of_views += 1
         a.save()
         if auth.get_user(request).is_authenticated:
@@ -35,10 +36,12 @@ def one_by_one(request, news_id):
                 context.update({'favourite': "Добавить в избранное"})
     except:
         raise Http404("Статья не найдена!")
+    latest_news = News.objects.order_by('-publication_date')[:4]
     comment_list = a.comment_set.all()
-    context.update({'news': a})
-    context.update({'comments_list': comment_list})
-    return render(request, 'news/detail.html', context)
+    latest_comments = Comment.objects.order_by('-comment_date')[:4]
+    context.update({'news': a, 'comment_list': comment_list, 'count': count, 'latest_news': latest_news,
+                    'latest_comments': latest_comments})
+    return render(request, 'news/single-post.html', context)
 
 
 # Данная функция используется для оставления комментария в новосте по ссылке news/<int:news_id>
