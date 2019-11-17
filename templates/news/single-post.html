@@ -38,7 +38,7 @@
                             <!-- Login Search Area -->
                             <div class="login-search-area d-flex align-items-center">
                                 <!-- Login -->
-                                {% if user.is_authenticated %}
+                                {% if user.is_authenticated %}f
                                     <div class="login d-flex">
                                         <a href="{% url 'news:profile' %}">{{ user.username }}</a>
                                         <a href="{% url 'logout' %}">Выйти</a>

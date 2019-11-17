@@ -91,7 +91,7 @@ def archive(request):
         news_list = News.objects.order_by('publication_date')
     except:
         raise Http404('Список новостей пуст')
-    return render(request, 'news/archive.html', {'news_list': news_list})
+    return render(request, 'news/catagories-post.html', {'news_list': news_list})
 
 
 # Данная функция используется для поиска на главной странице по содержимому и заголовку новости
