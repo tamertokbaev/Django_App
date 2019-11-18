@@ -95,7 +95,7 @@
                                     <li class="active"><a href="{% url 'news:index' %}">Домашняя страница</a></li>
                                     <li><a href="#">Казахстанская премьер лига</a>
                                         <ul class="dropdown">
-                                            <li><a href="#">Новости</a></li>
+                                            <li><a href="{% url 'news:kpl_news' %}">Новости</a></li>
                                             <li><a href="{% url 'kpl:tournament_table' %}">Турнирная таблица</a></li>
                                             <li><a href="{% url 'kpl:calendar' %}">Календарь игр</a></li>
                                             <li><a href="#">Статистика</a></li>

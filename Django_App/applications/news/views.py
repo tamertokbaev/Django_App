@@ -17,8 +17,9 @@ def index(request):
     news_list = News.objects.order_by('-count_of_views')[:3]
     another_list = News.objects.order_by('-count_of_views')[3:9]
     latest_news = News.objects.order_by('-publication_date')[:4]
+    latest_comments = Comment.objects.order_by('-comment_date')[:4]
     return render(request, 'news/index.html', {'news_list': news_list, 'latest_news': latest_news,
-                                               'another_list': another_list})
+                                               'another_list': another_list, 'latest_comments': latest_comments})
 
 
 # Данная функция используется для показа определенной новости по ссылке в urls.py news/<int:news_id>
@@ -89,9 +90,11 @@ def register_user(request):
 def archive(request):
     try:
         news_list = News.objects.order_by('publication_date')
+        latest_comments = Comment.objects.order_by('-comment_date')[:4]
+        latest_news = News.objects.order_by('-publication_date')[:4]
     except:
         raise Http404('Список новостей пуст')
-    return render(request, 'news/catagories-post.html', {'news_list': news_list})
+    return render(request, 'news/catagories-post.html', {'news_list': news_list, 'latest_comments': latest_comments, 'latest_news': latest_news})
 
 
 # Данная функция используется для поиска на главной странице по содержимому и заголовку новости
@@ -185,3 +188,13 @@ def profile_avatar(request):
     except:
         raise Http404("Возникла ошибка! Возможно этот пользователь был удален!")
     return HttpResponseRedirect(reverse('news:profile'))
+
+
+def kpl_news(request):
+    try:
+        news_list = News.objects.order_by('publication_date').filter(news_tag='Казахстанская-премьер лига')
+        latest_comments = Comment.objects.order_by('-comment_date')[:4]
+        latest_news = News.objects.order_by('-publication_date')[:4]
+    except:
+        raise Http404('Список новостей пуст')
+    return render(request, 'news/kpl_news.html', {'news_list': news_list, 'latest_comments': latest_comments, 'latest_news': latest_news})
