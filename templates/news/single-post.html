@@ -254,7 +254,7 @@
                                             <img src="{{ comment.comment_author.profile.avatar.url }}" alt="">
                                         </div>
                                         <div class="comments-text">
-                                            <a href="#">{{ comment.comment_author }} <span>к</span> {{ comment.news.news_title|truncatewords:7 }}</a>
+                                            <a href="{% url 'news:one_by_one' comment.news.id %}">{{ comment.comment_author }} <span>к</span> {{ comment.news.news_title|truncatewords:7 }}</a>
                                             <p>{{ comment.comment_date }}</p>
                                         </div>
                                     </div>

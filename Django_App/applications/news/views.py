@@ -128,7 +128,10 @@ def confirming_register(request):
 
 
 def show_profile(request):
-    return render(request, 'news/profile.html', {})
+    latest_news = News.objects.order_by('-publication_date')[:4]
+    latest_comments = Comment.objects.order_by('-comment_date')[:4]
+    return render(request, 'news/profile.html', {'latest_news': latest_news,
+                    'latest_comments': latest_comments})
 
 
 def edit_profile(request):

@@ -43,15 +43,12 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DjangoForStudents-master" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DjangoForStudents-master/myDjangoProject" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.django.DjangoModulesConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="OPEN_URL_DIALOG">
       <recent name="https://github.com/tamertokbaev/Django_App.git" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\User\Desktop\Study process\Projects [Python]\Django_App\templates\news" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\User\Desktop\Study process\Projects [Python]\Django_App\templates\news" />
@@ -59,6 +56,9 @@
       <recent name="C:\Users\User\Desktop\Study process\Projects [Python]\Django_App\Django_App" />
       <recent name="C:\Users\User\Desktop\Study process\Projects [Python]\Django_App\media" />
       <recent name="C:\Users\User\Desktop\Study process\Projects [Python]\Django_App\media\images" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\Study process\Projects [Python]\Django_App\templates\news" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -219,7 +219,11 @@
       <workItem from="1574062503248" duration="1264000" />
       <workItem from="1574069541106" duration="1065000" />
       <workItem from="1574071792376" duration="1456000" />
-      <workItem from="1574085920093" duration="2062000" />
+      <workItem from="1574085920093" duration="12180000" />
+      <workItem from="1574147071632" duration="3319000" />
+      <workItem from="1574172888597" duration="3920000" />
+      <workItem from="1574248037099" duration="566000" />
+      <workItem from="1574269705774" duration="301000" />
     </task>
     <servers />
   </component>
