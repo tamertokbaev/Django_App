@@ -136,7 +136,7 @@
                                 </a>
                                 <div class="post-meta">
 {#                                    <p class="post-author">By <a href="#">Christinne Williams</a></p>#}
-                                    <p>{{ news.news_content }}</p>
+                                    <p>{% autoescape off %}{{ news.news_content }}{% endautoescape %}</p>
                                     <div class="newspaper-post-like d-flex align-items-center justify-content-between">
                                         <!-- Tags -->
                                         <div class="newspaper-tags d-flex">

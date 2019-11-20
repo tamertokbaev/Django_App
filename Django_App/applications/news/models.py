@@ -3,7 +3,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils import timezone
 from django.contrib.auth.models import User
-
+from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 
@@ -45,7 +45,7 @@ class News(models.Model):
 
     news_title = models.CharField('Title of the news', max_length=200)
     news_sh_description = models.CharField('Short description of the news', max_length=800)
-    news_content = models.TextField('Content of the news')
+    news_content = RichTextUploadingField()
     news_tag = models.CharField(max_length=100, choices=TAG_TYPES, default=ANOTHER)
     publication_date = models.DateTimeField('Date of publication of the news')
     count_of_views = models.IntegerField('Count of views of the news')

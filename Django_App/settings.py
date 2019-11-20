@@ -35,6 +35,8 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'kpl.apps.KplConfig',
     'news.apps.NewsConfig',
+    'ckeditor',
+    'ckeditor_uploader',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -56,6 +58,19 @@ MIDDLEWARE = [
 # This used for uploading images on the server
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
+
+CKEDITOR_CONFIGS = {
+
+    'default': {
+
+     'toolbar': 'None'
+
+    },
+}
+
 
 ROOT_URLCONF = 'Django_App.urls'
 

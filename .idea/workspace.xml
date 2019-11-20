@@ -44,7 +44,7 @@
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../DjangoForStudents-master/myDjangoProject" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.django.DjangoModulesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="OPEN_URL_DIALOG">
@@ -223,7 +223,7 @@
       <workItem from="1574147071632" duration="3319000" />
       <workItem from="1574172888597" duration="3920000" />
       <workItem from="1574248037099" duration="566000" />
-      <workItem from="1574269705774" duration="301000" />
+      <workItem from="1574269705774" duration="1559000" />
     </task>
     <servers />
   </component>
