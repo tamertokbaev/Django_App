@@ -137,22 +137,22 @@ def show_profile(request):
 def edit_profile(request):
     try:
         if request.method == 'POST':
-            username = str(request.POST['username'])
+            # username = str(request.POST['username'])
             first_name = str(request.POST['first_name'])
             last_name = str(request.POST['last_name'])
-            if username.strip().count(" ") >= 1:
-                return render(request, 'news/edit_profile.html',
-                              {'result': "Имя пользователя не должно содержать пробелы"})
+            # if username.strip().count(" ") >= 1:
+            #     return render(request, 'news/edit_profile.html',
+            #                   {'result': "Имя пользователя не должно содержать пробелы"})
             user = auth.get_user(request)
-            user.username = username.strip()
+            # user.username = username.strip()
             user.first_name = first_name.strip()
             user.last_name = last_name.strip()
             user.save()
-            return render(request, 'news/edit_profile.html', {'user': user,
+            return render(request, 'news/profile.html', {'user': user,
                                                               'result': 'Ваш профиль был успешно изменен'})
     except:
         raise Http404('Упс... Что-то пошло не так...')
-    return render(request, 'news/edit_profile.html', {})
+    return render(request, 'news/profile.html', {})
 
 
 def add_to_favourites(request, news_id):

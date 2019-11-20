@@ -6,16 +6,17 @@ from django.contrib.auth.models import User
 
 
 class CustomRegistrationForm(UserCreationForm):
-    email = forms.EmailField(required=True)
-    first_name = forms.CharField(required=True)
-    last_name = forms.CharField(required=True)
-    username = forms.CharField(required=True)
-    password1 = forms.PasswordInput()
-    password2 = forms.PasswordInput()
+    email = forms.EmailField(required=True, widget=forms.TextInput(attrs={'placeholder': 'Электронный адрес', 'class': 'form-control'}))
+    first_name = forms.CharField(required=True, widget=forms.TextInput(attrs={'placeholder': ' Имя', 'class': 'form-control'}))
+    last_name = forms.CharField(required=True, widget=forms.TextInput(attrs={'placeholder': ' Фамилия', 'class': 'form-control'}))
+    username = forms.CharField(required=True, widget=forms.TextInput(attrs={'placeholder': ' Имя', 'class': 'form-control'}))
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': ' Пароль', 'class': 'form-control'}))
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': ' Подтверждение пароля', 'class': 'form-control'}))
 
     class Meta:
         model = User
         fields = ('username', 'email', 'first_name', 'last_name', 'password1', 'password2')
+
     # Конструктор данного класса я использовал только для того чтобы очистить поля help_text которые заполняются по
     # - умолчанию из коробки Django
 

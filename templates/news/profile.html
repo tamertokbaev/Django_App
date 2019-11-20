@@ -140,20 +140,31 @@
                                 </a>
                                 <br><br><br><br>
                                 <a href="#" class="post-catagory">Изменить профиль</a>
-                                <script type="text/javascript">
-                                    function showhide(id) {
-                                     	var e = document.getElementById(id);
-                                        e.style.display = (e.style.display == 'block') ? 'none' : 'block';
-                                    }
-                                </script>
-                                <a href="javascript:showhide('showedit')"><button>Изменить профиль</button></a>
-                                <div id="showedit">
-                                    Имя <input type="text" name="first_name" placeholder="Имя">
-                                    Фамилия <input type="text" name="last_name" placeholder="Фамилия">
-                                    <button type="submit">Изменить</button>
-                                </div>
+                                <form method="post" action="{% url 'news:edit_profile' %}">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                            <div class="col-12 col-lg-6">
+                                                <input type="text" class="form-control" name="first_name" placeholder="Имя" value="{{ user.first_name }}" required><br>
+                                            </div>
+                                            <div class="col-12 col-lg-6">
+                                                <input type="text" class="form-control" name="last_name" placeholder="Фамилия" required value="{{ user.last_name }}">
+                                            </div>
+                                            <div class="col-12">
+                                                Дата рождения:<br><br>
+                                                <input type="date" class="form-control" name="date" placeholder="Дата рождения" required value="{{ user.profile.birth_date }}"><br>
+                                            </div>
+                                            <div class="col-12 text-center">
+                                                <button class="btn newspaper-btn mt-30 w-100" type="submit">Изменить</button>
+                                            </div><br><br>
+
+                                    </div>
+                                </form>
                                 <div class="post-meta">
-                                    <p class="post-excerp"> </p>
+                                <p class="post-excerp">
+                                    {% if result %}
+                                        {{ result }}!
+                                    {% endif %}
+                                </p>
                                 </div>
                             </div>
                         </div>

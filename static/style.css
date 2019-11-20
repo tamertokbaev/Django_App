@@ -100,7 +100,7 @@ img {
   margin-bottom: 15px !important; }
 
 .mb-30 {
-  margin-bottom: 30px !important; }
+  margin-bottom: 30px; }
 
 .mb-50 {
   margin-bottom: 50px !important; }
@@ -547,6 +547,9 @@ textarea:focus {
 .single-blog-post {
   position: relative;
   z-index: 1; }
+  .single-blog-post #showedit div{
+    display: none;
+  }
   .single-blog-post .post-thumb a {
     display: block; }
   .single-blog-post .post-data {
@@ -1201,6 +1204,3 @@ textarea:focus {
         font-size: 30px; } }
 
 /*# sourceMappingURL=style.css.map */
-
-
-/* Changes by tamertokbaev */
