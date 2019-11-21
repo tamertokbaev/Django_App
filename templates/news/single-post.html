@@ -144,6 +144,12 @@
                                             <ul class="d-flex">
                                                 <li><a href="#">{{ news.news_tag }}</a></li>
                                             </ul>
+                                            {% if favourite %}
+                                                <form method="post" action="{% url 'news:add_to_fav' news.id %}">
+                                                {% csrf_token %}
+                                                <button type="submit">{{ favourite }}</button>
+                                                </form>
+                                                {% endif %}
                                         </div>
 
                                         <!-- Post Like & Post Comment -->

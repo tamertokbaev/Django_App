@@ -137,6 +137,7 @@
                                     Фамилия: {{ user.last_name }} <br>
                                     Почта: {{ user.email }} <br>
                                     Дата рождения: {{ user.profile.birth_date }}
+                                    <a href="{% url 'news:show_favourites' %}"> izbrannoe</a>
                                 </a>
                                 <br><br><br><br>
                                 <a href="#" class="post-catagory">Изменить профиль</a>
