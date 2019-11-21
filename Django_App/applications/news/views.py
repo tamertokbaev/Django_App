@@ -106,7 +106,9 @@ def search(request):
             search_str = request.POST['search']
             all_news = News.objects.filter(news_content__icontains=search_str).filter(
                 news_content__icontains=search_str)
-        return render(request, 'news/search.html', {'all_news': all_news})
+            latest_comments = Comment.objects.order_by('-comment_date')[:4]
+            latest_news = News.objects.order_by('-publication_date')[:4]
+            return render(request, 'news/search.html', {'all_news': all_news, 'latest_comments': latest_comments, 'latest_news': latest_news})
     except:
         return render(request, 'news/search.html', {})
 
