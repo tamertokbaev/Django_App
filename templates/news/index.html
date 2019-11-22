@@ -40,7 +40,7 @@
                                 <!-- Login -->
                                 {% if user.is_authenticated %}
                                     <div class="login d-flex">
-                                        <a href="{% url 'news:profile' %}">{{ user.username }}</a>
+                                        <a href="{% url 'news:profile' user.username%}">{{ user.username }}</a>
                                         <a href="{% url 'logout' %}">Выйти</a>
                                     </div>
                                 {% else %}
@@ -179,7 +179,7 @@
                                 <div class="post-data">
                                     <a href="{% url 'news:one_by_one' news_list.2.id %}" class="post-catagory">{{ news_list.2.news_tag }}</a>
                                     <div class="post-meta">
-                                        <a href="#" class="post-title">
+                                        <a href="{% url 'news:one_by_one' news_list.2.id %}" class="post-title">
                                             <h6>{{ news_list.2.news_title }}</h6>
                                         </a>
                                         <!-- Post Like & Post Comment -->

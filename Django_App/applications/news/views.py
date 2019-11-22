@@ -27,7 +27,7 @@ def one_by_one(request, news_id):
     try:
         context = {}
         a = News.objects.get(id=news_id)
-        count =  a.comment_set.count()
+        count = a.comment_set.count()
         a.count_of_views += 1
         a.save()
         if auth.get_user(request).is_authenticated:
@@ -104,7 +104,7 @@ def search(request):
     try:
         if request.method == 'POST':
             search_str = request.POST['search']
-            all_news = News.objects.filter(news_content__icontains=search_str).filter(
+            all_news = News.objects.filter(news_title__icontains=search_str).filter(
                 news_content__icontains=search_str)
             latest_comments = Comment.objects.order_by('-comment_date')[:4]
             latest_news = News.objects.order_by('-publication_date')[:4]
@@ -129,7 +129,7 @@ def confirming_register(request):
     return render(request, 'news/confirm.html', {})
 
 
-def show_profile(request):
+def show_profile(request, slug):
     latest_news = News.objects.order_by('-publication_date')[:4]
     latest_comments = Comment.objects.order_by('-comment_date')[:4]
     return render(request, 'news/profile.html', {'latest_news': latest_news,
@@ -169,8 +169,10 @@ def add_to_favourites(request, news_id):
     return HttpResponseRedirect(reverse('news:one_by_one', args=(news_id,)))
 
 
-def show_favourites(request):
-    context = {}
+def show_favourites(request, slug):
+    latest_news = News.objects.order_by('-publication_date')[:4]
+    latest_comments = Comment.objects.order_by('-comment_date')[:4]
+    context = {'latest_news': latest_news, 'latest_comments': latest_comments}
     try:
         user = auth.get_user(request)
         fav_list = UserFavourite.objects.filter(user=user)

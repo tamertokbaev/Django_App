@@ -40,7 +40,7 @@
                                 <!-- Login -->
                                 {% if user.is_authenticated %}
                                     <div class="login d-flex">
-                                        <a href="{% url 'news:profile' %}">{{ user.username }}</a>
+                                        <a href="{% url 'news:profile' user.username %}">{{ user.username }}</a>
                                         <a href="{% url 'logout' %}">Выйти</a>
                                     </div>
                                 {% else %}
@@ -128,16 +128,16 @@
                         <!-- Single Featured Post -->
                         <div class="single-blog-post featured-post mb-30">
                             <div class="post-thumb">
-                                <a href="{% url 'news:profile' %}"><img src="{{ user.profile.avatar.url }}" width="150" height="150" alt=""></a>
+                                <a href="{% url 'news:profile' user.username %}"><img src="{{ user.profile.avatar.url }}" width="150" height="150" alt=""></a>
                             </div>
                             <div class="post-data">
-                                <a href="{% url 'news:profile' %}" class="post-catagory">{{ user.username }}</a>
-                                <a href="{% url 'news:profile' %}" class="post-title">
+                                <a href="{% url 'news:profile' user.username %}" class="post-catagory">{{ user.username }}</a>
+                                <a href="{% url 'news:profile' user.username %}" class="post-title">
                                     Имя: {{ user.first_name }} <br>
                                     Фамилия: {{ user.last_name }} <br>
                                     Почта: {{ user.email }} <br>
-                                    Дата рождения: {{ user.profile.birth_date }}
-                                    <a href="{% url 'news:show_favourites' %}"> izbrannoe</a>
+                                    Дата рождения: {{ user.profile.birth_date }}<br><br>
+                                    <a href="{% url 'news:show_favourites' user.username %}" class="post-catagory"> Посмотреть избранные новости</a>
                                 </a>
                                 <br><br><br><br>
                                 <a href="#" class="post-catagory">Изменить профиль</a>

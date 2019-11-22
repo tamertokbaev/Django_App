@@ -40,7 +40,7 @@
                                 <!-- Login -->
                                 {% if user.is_authenticated %}
                                     <div class="login d-flex">
-                                        <a href="{% url 'news:profile' %}">{{ user.username }}</a>
+                                        <a href="{% url 'news:profile' user.username %}">{{ user.username }}</a>
                                         <a href="{% url 'logout' %}">Выйти</a>
                                     </div>
                                 {% else %}
@@ -144,12 +144,6 @@
                                             <ul class="d-flex">
                                                 <li><a href="#">{{ news.news_tag }}</a></li>
                                             </ul>
-                                            {% if favourite %}
-                                                <form method="post" action="{% url 'news:add_to_fav' news.id %}">
-                                                {% csrf_token %}
-                                                <button type="submit">{{ favourite }}</button>
-                                                </form>
-                                                {% endif %}
                                         </div>
 
                                         <!-- Post Like & Post Comment -->
@@ -158,6 +152,12 @@
                                             <a href="#" class="post-comment"><img src="{% static 'img/core-img/chat.png' %}" alt=""> <span> {{ count }} </span></a>
                                         </div>
                                     </div>
+                                    {% if favourite %}
+                                        <form method="post" action="{% url 'news:add_to_fav' news.id %}">
+                                            {% csrf_token %}
+                                        <button type="submit" class="newspaper-btn w-100">{{ favourite }}</button>
+                                        </form>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>

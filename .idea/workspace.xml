@@ -43,7 +43,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DjangoForStudents-master/myDjangoProject" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DjangoForStudents-master" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
@@ -227,6 +227,7 @@
       <workItem from="1574279035700" duration="395000" />
       <workItem from="1574311377024" duration="3268000" />
       <workItem from="1574331045520" duration="2756000" />
+      <workItem from="1574416434902" duration="4859000" />
     </task>
     <servers />
   </component>
