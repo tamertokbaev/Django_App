@@ -42,6 +42,13 @@ class Eu_club(models.Model):
     earned_points = models.IntegerField(default=0)
     started_points = models.IntegerField(default=0)
     tournament_played = models.CharField(default='UCL', max_length=100)
+    group = models.CharField(default=0, max_length=1)
 
     def __str__(self):
         return str(self.club_name)
+
+class Eu_cycle(models.Model):
+    home_team = models.ForeignKey(Eu_club, on_delete=models.CASCADE, related_name='salam')
+    away_team = models.ForeignKey(Eu_club, on_delete=models.CASCADE, related_name='molekulam')
+    tournament_played = models.CharField(default=0, max_length=100)
+    group = models.CharField(default=0, max_length=1)
