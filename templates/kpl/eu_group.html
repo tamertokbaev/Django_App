@@ -1,0 +1,82 @@
+{% extends 'news/index.html' %}
+{% block main %}
+    <!-- ##### Blog Area Start ##### -->
+    <div class="blog-area section-padding-0-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="blog-posts-area">
+                        <!-- Single Featured Post -->
+                        <div class="single-blog-post featured-post mb-30">
+                            <div class="post-data">
+                                {% if club_list %}
+                                <a href="{% url 'kpl:ucl_group_table' %}" class="post-catagory">Группа {{ club_list.0.group }}<br><br></a>
+                                    <div class="post-data">
+                                            <table>
+                                            <tr>
+                                                <th>Название</th>
+                                                <th>Количество игр</th>
+                                                <th>Победы</th>
+                                                <th>Ничьи</th>
+                                                <th>Поражения</th>
+                                                <th>Разница</th>
+                                                <th>Очки</th>
+                                            </tr>
+                                            {% for i in club_list %}
+                                                <tr>
+                                                    <td>{{ i.club_name }}</td>
+                                                    <td>{{ i.matches_played }}</td>
+                                                    <td>{{ i.count_of_wins }}</td>
+                                                    <td>{{ i.count_of_draws }}</td>
+                                                    <td>{{ i.count_of_loses }}</td>
+                                                    <td>{{ i.goal_difference }}</td>
+                                                    <td>{{ i.earned_points }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                        </table>
+                                    </div>
+                            </div>
+                            {% else %}
+                                    Запрашиваемая группа не найдена!
+                            {% endif %}
+                        {% if matches_played %}
+                            <a href="#" class="post-title">
+                                    <h6>Сыгранные матчи в Группе {{ club_list.0.group }}<br><br></h6>
+                            </a>
+                            {% for match in matches_played %}
+                                <div class="post-meta">
+                                    <p class="post-excerp">{{ match.home_team }} <strong>{{ match.result }}</strong> {{ match.away_team }}</p>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            Пока матчей между командами сыграно не было
+                        {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="blog-sidebar-area">
+                        <!-- Popular News Widget -->
+                        <div class="popular-news-widget mb-50">
+                            <h3>Последние новости</h3>
+                            {% if latest_news %}
+                                {% for news in latest_news %}
+                                    <!-- Single Popular Blog -->
+                                    <div class="single-popular-post">
+                                        <a href="{% url 'news:one_by_one' news.id %}">
+                                            <h6><span>{{ forloop.counter }}.</span> {{ news.news_title }}</h6>
+                                        </a>
+                                        <p>{{ news.publication_date }}</p>
+                                    </div>
+                                {% endfor %}
+                            {% else %}
+                                Пока еще нет последних новостей.
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Blog Area End ##### -->
+{% endblock %}

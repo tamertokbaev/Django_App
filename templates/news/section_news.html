@@ -1,7 +1,7 @@
 {% extends 'news/index.html' %}
 {% block main %}
     <!-- ##### Blog Area Start ##### -->
-    {% if all_news %}
+    {% if news_list %}
     <div class="blog-area section-padding-0-80">
         <div class="container">
             <div class="row">
@@ -9,7 +9,7 @@
                     <div class="blog-posts-area">
 
                         <!-- Single Featured Post -->
-                        {% for news in all_news %}
+                        {% for news in news_list %}
                         <div class="single-blog-post featured-post mb-30">
                             <div class="post-thumb">
                                 <a href="{% url 'news:one_by_one' news.id %}"><img src="{{ news.img.url }}" alt=""></a>
@@ -88,17 +88,7 @@
         </div>
     </div>
     {% else %}
-        <div class="single-blog-post featured-post mb-30">
-                            <div class="post-data">
-                                    <div class="text-center">
-                                        <h6> По вашему результату ничего не было найдено!</h6>
-                                    </div>
-                                </a>
-                                <div class="post-meta">
-                                    <p class="post-excerp"> </p>
-                                </div>
-                            </div>
-                        </div>
+        Пока новостей нет
     {% endif %}
     <!-- ##### Blog Area End ##### -->
 {% endblock %}

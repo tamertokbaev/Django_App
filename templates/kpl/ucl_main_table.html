@@ -1,0 +1,253 @@
+{% extends 'news/index.html' %}
+{% block main %}
+    <!-- ##### Blog Area Start ##### -->
+    <div class="blog-area section-padding-0-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="blog-posts-area">
+                        <!-- Single Featured Post -->
+                        <div class="single-blog-post featured-post mb-30">
+                            <div class="post-data">
+                                <a href="#" class="post-catagory">Турнирная таблица Лиги Чемпионов УЕФА 2019/2020<br><br></a>
+                                    <div class="post-data">
+                                        <a href="{% url 'kpl:ucl_group_table' group_a.0.group %}" class="post-catagory">Группа A</a><br><br>
+                                        <table>
+                                            <tr>
+                                                <th>Название</th>
+                                                <th>Количество игр</th>
+                                                <th>Победы</th>
+                                                <th>Ничьи</th>
+                                                <th>Поражения</th>
+                                                <th>Разница</th>
+                                                <th>Очки</th>
+                                            </tr>
+                                            {% for i in group_a %}
+                                                <tr>
+                                                    <td>{{ i.club_name }}</td>
+                                                    <td>{{ i.matches_played }}</td>
+                                                    <td>{{ i.count_of_wins }}</td>
+                                                    <td>{{ i.count_of_draws }}</td>
+                                                    <td>{{ i.count_of_loses }}</td>
+                                                    <td>{{ i.goal_difference }}</td>
+                                                    <td>{{ i.earned_points }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                        </table>
+                                    </div>
+
+                                    <div class="post-data">
+                                        <a href="{% url 'kpl:ucl_group_table' group_b.0.group %}" class="post-catagory">Группа B</a><br><br>
+                                        <table>
+                                            <tr>
+                                                <th>Название</th>
+                                                <th>Количество игр</th>
+                                                <th>Победы</th>
+                                                <th>Ничьи</th>
+                                                <th>Поражения</th>
+                                                <th>Разница</th>
+                                                <th>Очки</th>
+                                            </tr>
+                                            {% for i in group_b %}
+                                                <tr>
+                                                    <td>{{ i.club_name }}</td>
+                                                    <td>{{ i.matches_played }}</td>
+                                                    <td>{{ i.count_of_wins }}</td>
+                                                    <td>{{ i.count_of_draws }}</td>
+                                                    <td>{{ i.count_of_loses }}</td>
+                                                    <td>{{ i.goal_difference }}</td>
+                                                    <td>{{ i.earned_points }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                        </table>
+                                    </div>
+
+                                    <div class="post-data">
+                                        <a href="{% url 'kpl:ucl_group_table' group_c.0.group %}" class="post-catagory">Группа C</a><br><br>
+                                        <table>
+                                            <tr>
+                                                <th>Название</th>
+                                                <th>Количество игр</th>
+                                                <th>Победы</th>
+                                                <th>Ничьи</th>
+                                                <th>Поражения</th>
+                                                <th>Разница</th>
+                                                <th>Очки</th>
+                                            </tr>
+                                            {% for i in group_c %}
+                                                <tr>
+                                                    <td>{{ i.club_name }}</td>
+                                                    <td>{{ i.matches_played }}</td>
+                                                    <td>{{ i.count_of_wins }}</td>
+                                                    <td>{{ i.count_of_draws }}</td>
+                                                    <td>{{ i.count_of_loses }}</td>
+                                                    <td>{{ i.goal_difference }}</td>
+                                                    <td>{{ i.earned_points }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                        </table>
+                                    </div>
+
+                                    <div class="post-data">
+                                        <a href="{% url 'kpl:ucl_group_table' group_d.0.group %}" class="post-catagory">Группа D</a><br><br>
+                                        <table>
+                                            <tr>
+                                                <th>Название</th>
+                                                <th>Количество игр</th>
+                                                <th>Победы</th>
+                                                <th>Ничьи</th>
+                                                <th>Поражения</th>
+                                                <th>Разница</th>
+                                                <th>Очки</th>
+                                            </tr>
+                                            {% for i in group_d %}
+                                                <tr>
+                                                    <td>{{ i.club_name }}</td>
+                                                    <td>{{ i.matches_played }}</td>
+                                                    <td>{{ i.count_of_wins }}</td>
+                                                    <td>{{ i.count_of_draws }}</td>
+                                                    <td>{{ i.count_of_loses }}</td>
+                                                    <td>{{ i.goal_difference }}</td>
+                                                    <td>{{ i.earned_points }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                        </table>
+                                    </div>
+
+                                    <div class="post-data">
+                                    <a href="{% url 'kpl:ucl_group_table' group_e.0.group %}" class="post-catagory">Группа E</a><br><br>
+                                        <table>
+                                            <tr>
+                                                <th>Название</th>
+                                                <th>Количество игр</th>
+                                                <th>Победы</th>
+                                                <th>Ничьи</th>
+                                                <th>Поражения</th>
+                                                <th>Разница</th>
+                                                <th>Очки</th>
+                                            </tr>
+                                            {% for i in group_e %}
+                                                <tr>
+                                                    <td>{{ i.club_name }}</td>
+                                                    <td>{{ i.matches_played }}</td>
+                                                    <td>{{ i.count_of_wins }}</td>
+                                                    <td>{{ i.count_of_draws }}</td>
+                                                    <td>{{ i.count_of_loses }}</td>
+                                                    <td>{{ i.goal_difference }}</td>
+                                                    <td>{{ i.earned_points }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                        </table>
+                                    </div>
+
+                                    <div class="post-data">
+                                        <a href="{% url 'kpl:ucl_group_table' group_f.0.group %}" class="post-catagory">Группа F</a><br><br>
+                                        <table>
+                                            <tr>
+                                                <th>Название</th>
+                                                <th>Количество игр</th>
+                                                <th>Победы</th>
+                                                <th>Ничьи</th>
+                                                <th>Поражения</th>
+                                                <th>Разница</th>
+                                                <th>Очки</th>
+                                            </tr>
+                                            {% for i in group_f %}
+                                                <tr>
+                                                    <td>{{ i.club_name }}</td>
+                                                    <td>{{ i.matches_played }}</td>
+                                                    <td>{{ i.count_of_wins }}</td>
+                                                    <td>{{ i.count_of_draws }}</td>
+                                                    <td>{{ i.count_of_loses }}</td>
+                                                    <td>{{ i.goal_difference }}</td>
+                                                    <td>{{ i.earned_points }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                        </table>
+                                    </div>
+
+                                    <div class="post-data">
+                                        <a href="{% url 'kpl:ucl_group_table' group_g.0.group %}" class="post-catagory">Группа G</a><br><br>
+                                        <table>
+                                            <tr>
+                                                <th>Название</th>
+                                                <th>Количество игр</th>
+                                                <th>Победы</th>
+                                                <th>Ничьи</th>
+                                                <th>Поражения</th>
+                                                <th>Разница</th>
+                                                <th>Очки</th>
+                                            </tr>
+                                            {% for i in group_g %}
+                                                <tr>
+                                                    <td>{{ i.club_name }}</td>
+                                                    <td>{{ i.matches_played }}</td>
+                                                    <td>{{ i.count_of_wins }}</td>
+                                                    <td>{{ i.count_of_draws }}</td>
+                                                    <td>{{ i.count_of_loses }}</td>
+                                                    <td>{{ i.goal_difference }}</td>
+                                                    <td>{{ i.earned_points }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                        </table>
+                                    </div>
+
+                                    <div class="post-data">
+                                        <a href="{% url 'kpl:ucl_group_table' group_h.0.group %}" class="post-catagory">Группа H</a>
+                                        <br><br>
+                                        <table>
+                                            <tr>
+                                                <th>Название</th>
+                                                <th>Количество игр</th>
+                                                <th>Победы</th>
+                                                <th>Ничьи</th>
+                                                <th>Поражения</th>
+                                                <th>Разница</th>
+                                                <th>Очки</th>
+                                            </tr>
+                                            {% for i in group_h %}
+                                                <tr>
+                                                    <td>{{ i.club_name }}</td>
+                                                    <td>{{ i.matches_played }}</td>
+                                                    <td>{{ i.count_of_wins }}</td>
+                                                    <td>{{ i.count_of_draws }}</td>
+                                                    <td>{{ i.count_of_loses }}</td>
+                                                    <td>{{ i.goal_difference }}</td>
+                                                    <td>{{ i.earned_points }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                        </table>
+                                    </div>
+                                <div class="post-meta">
+                                    <p class="post-excerp"> </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="blog-sidebar-area">
+                        <!-- Popular News Widget -->
+                        <div class="popular-news-widget mb-50">
+                            <h3>Последние новости</h3>
+                            {% if latest_news %}
+                                {% for news in latest_news %}
+                                    <!-- Single Popular Blog -->
+                                    <div class="single-popular-post">
+                                        <a href="{% url 'news:one_by_one' news.id %}">
+                                            <h6><span>{{ forloop.counter }}.</span> {{ news.news_title }}</h6>
+                                        </a>
+                                        <p>{{ news.publication_date }}</p>
+                                    </div>
+                                {% endfor %}
+                            {% else %}
+                                Пока еще нет последних новостей.
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Blog Area End ##### -->
+{% endblock %}

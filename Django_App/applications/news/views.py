@@ -189,7 +189,6 @@ def profile_avatar(request):
     try:
         if request.method == 'POST':
             user = request.user
-            avatar = request.FILES['avatar']
             user.profile.avatar = request.FILES['avatar']
             user.save()
     except:
@@ -197,11 +196,20 @@ def profile_avatar(request):
     return HttpResponseRedirect(reverse('news:profile'))
 
 
-def kpl_news(request):
+def section_news(request, section):
     try:
-        news_list = News.objects.order_by('publication_date').filter(news_tag='Казахстанская-премьер лига')
+        if section == 'kazakh-premier-league':
+            news_list = News.objects.order_by('publication_date').filter(news_tag='Казахстанская-премьер лига')
+        elif section == 'uefa-champions-league':
+            news_list = News.objects.order_by('publication_date').filter(news_tag='Лига чемпионов УЕФА')
+        elif section == 'uefa-europe-league':
+            news_list = News.objects.order_by('publication_date').filter(news_tag='Лига Европы УЕФА')
+        elif section == 'national-team':
+            news_list = News.objects.order_by('publication_date').filter(news_tag='Национальная сборная по футболу')
+        elif section == 'another-tag':
+            news_list = News.objects.order_by('publication_date').filter(news_tag='Другое')
         latest_comments = Comment.objects.order_by('-comment_date')[:4]
         latest_news = News.objects.order_by('-publication_date')[:4]
     except:
         raise Http404('Список новостей пуст')
-    return render(request, 'news/kpl_news.html', {'news_list': news_list, 'latest_comments': latest_comments, 'latest_news': latest_news})
+    return render(request, 'news/section_news.html', {'news_list': news_list, 'latest_comments': latest_comments, 'latest_news': latest_news})

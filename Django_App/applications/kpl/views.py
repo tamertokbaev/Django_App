@@ -1,7 +1,8 @@
+from django.http import Http404
 from django.shortcuts import render
 from django.apps import apps
 
-from .models import Club, GameCycle
+from .models import Club, GameCycle, Eu_cycle, Eu_club
 
 # Create your views here.
 
@@ -63,3 +64,36 @@ def show_calendar(request):
     latest_news = News.objects.order_by('-publication_date')[:4]
     context = {'tours': tours, 'latest_news': latest_news}
     return render(request, 'kpl/calendar.html', context)
+
+
+def UCL_mainTable(request):
+    try:
+        News = apps.get_model('news', 'News')
+        latest_news = News.objects.order_by('-publication_date')[:4]
+        club_list = Eu_club.objects.filter(tournament_played='UCL')
+        context = {'latest_news': latest_news, 'club_list': club_list}
+        group_a = Eu_club.objects.filter(tournament_played='UCL', group='A').order_by('-earned_points')
+        group_b = Eu_club.objects.filter(tournament_played='UCL', group='B').order_by('-earned_points')
+        group_c = Eu_club.objects.filter(tournament_played='UCL', group='C').order_by('-earned_points')
+        group_d = Eu_club.objects.filter(tournament_played='UCL', group='D').order_by('-earned_points')
+        group_e = Eu_club.objects.filter(tournament_played='UCL', group='E').order_by('-earned_points')
+        group_f = Eu_club.objects.filter(tournament_played='UCL', group='F').order_by('-earned_points')
+        group_g = Eu_club.objects.filter(tournament_played='UCL', group='G').order_by('-earned_points')
+        group_h = Eu_club.objects.filter(tournament_played='UCL', group='H').order_by('-earned_points')
+        context.update({'group_a': group_a, 'group_b': group_b, 'group_c': group_c, 'group_d': group_d,
+                        'group_e': group_e, 'group_f': group_f, 'group_g': group_g, 'group_h': group_h})
+    except:
+        raise Http404("Запрашиваемая ваша страница либо перемещена либо навсегда удалена!")
+    return render(request, 'kpl/ucl_main_table.html', context)
+
+
+def UCL_groupTable(request, group):
+    try:
+        News = apps.get_model('news', 'News')
+        latest_news = News.objects.order_by('-publication_date')[:4]
+        club_list = Eu_club.objects.filter(tournament_played='UCL', group=group).order_by('-earned_points')
+        matches_played = Eu_cycle.objects.filter(tournament_played='UCL', group=group)
+        context = {'latest_news': latest_news, 'club_list': club_list, 'matches_played': matches_played}
+    except:
+        raise Http404("Запрашиваемая ваша страница либо перемещена либо навсегда удалена!")
+    return render(request, 'kpl/eu_group.html', context)
