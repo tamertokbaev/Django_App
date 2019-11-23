@@ -27,14 +27,37 @@ def parse_news(base_url, headers):
                 club = ""
             else:
                 club += clubs_str[i]
-        print(clubs)
+        club_list = clubs[15:]
+        a = []
+        j = 0
+        counter = 0
+        for i in range(4):
+            if counter >= 2:
+                a.append(club_list[0+j+1:7+j+1])
+                j += 12
+            else:
+                a.append(club_list[0+j:7+j])
+                counter += 1
+                j += 12
+        return a
     elif requests.status_code == 404:
         print('404 error, page not found!')
         print('Or you are banned because of parsing')
 
 
-clubs = parse_news(base_url, headers)
-# EUClub = apps.get_model('kpl', 'Eu_club')
-# for club in clubs:
-#     EUClub.objects.create(club_name=club)
-#     EUClub.save
+a = parse_news(base_url, headers)
+for i in range(4):
+    a[i][0] = a[i][0].lstrip().lower().capitalize()
+print(a)
+
+# Save to database
+Eu_club = apps.get_model('kpl', 'Eu_club')
+for i in range(4):
+    club = Eu_club.objects.get(club_name=a[i][0])
+    club.matches_played = a[i][1]
+    club.count_of_wins = a[i][2]
+    club.count_of_draws = a[i][3]
+    club.count_of_loses = a[i][4]
+    club.goal_difference = a[i][5]
+    club.earned_points = a[i][6]
+    club.save()
