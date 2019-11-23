@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.apps import apps
+
 from .models import Club, GameCycle
 
 # Create your views here.
@@ -41,7 +43,10 @@ def tournament_table(request):
         i.earned_points = count_of_wins*3 + count_of_draws + i.started_points
         i.save()
     clubs = Club.objects.order_by('-earned_points')
-    return render(request, 'kpl/tournament_table.html', {'club_list': clubs})
+    News = apps.get_model('news', 'News')
+    latest_news = News.objects.order_by('-publication_date')[:4]
+
+    return render(request, 'kpl/tournament_table.html', {'club_list': clubs, 'latest_news': latest_news})
 
 
 def show_calendar(request):
@@ -54,5 +59,7 @@ def show_calendar(request):
         for j in cycle:
             games_in_single_tour.append(j)
         tours.append(games_in_single_tour)
-    context = {'tours': tours}
+    News = apps.get_model('news', 'News')
+    latest_news = News.objects.order_by('-publication_date')[:4]
+    context = {'tours': tours, 'latest_news': latest_news}
     return render(request, 'kpl/calendar.html', context)
