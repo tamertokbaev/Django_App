@@ -52,8 +52,9 @@ class Eu_cycle(models.Model):
     home_team = models.ForeignKey(Eu_club, on_delete=models.CASCADE, related_name='salam')
     away_team = models.ForeignKey(Eu_club, on_delete=models.CASCADE, related_name='molekulam')
     result = models.CharField(default=0, max_length=10)
-    tournament_played = models.CharField(default=0, max_length=100)
-    group = models.CharField(default=0, max_length=1)
+    tournament_played = models.CharField(default='UEL', max_length=100)
+    group = models.CharField(default='L', max_length=1)
 
     def __str__(self):
-        return self.home_team.club_name + ' ' +  self.result + ' ' + self.away_team.club_name + '. Группа ' + self.group + ' ' + self.tournament_played
+        return self.home_team.club_name + ' ' + self.result + ' ' + self.away_team.club_name + '. Группа ' +\
+               self.group + ' ' + self.tournament_played

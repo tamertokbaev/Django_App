@@ -50,6 +50,7 @@ class News(models.Model):
     publication_date = models.DateTimeField('Date of publication of the news')
     count_of_views = models.IntegerField('Count of views of the news')
     img = models.ImageField(upload_to='images/')
+    likes = models.IntegerField(default=0)
 
     def __str__(self):
         return self.news_title
@@ -68,3 +69,8 @@ class Comment(models.Model):
 class UserFavourite(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='User_ID')
     fav_news = models.ForeignKey(News, on_delete=models.CASCADE, related_name='Fav_news_ID')
+
+
+class UserLiked(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='User_ID_Liked')
+    liked_post = models.ForeignKey(News, on_delete=models.CASCADE, related_name='Liked_post_ID')

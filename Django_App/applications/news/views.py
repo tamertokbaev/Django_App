@@ -8,7 +8,7 @@ from django.core.mail import send_mail
 
 from random import randint
 
-from .models import News, UserFavourite, Comment
+from .models import *
 from .forms import CustomRegistrationForm
 
 
@@ -210,6 +210,28 @@ def section_news(request, section):
             news_list = News.objects.order_by('publication_date').filter(news_tag='Другое')
         latest_comments = Comment.objects.order_by('-comment_date')[:4]
         latest_news = News.objects.order_by('-publication_date')[:4]
+        return render(request, 'news/section_news.html', {'news_list': news_list, 'latest_comments': latest_comments, 'latest_news': latest_news})
     except:
         raise Http404('Список новостей пуст')
-    return render(request, 'news/section_news.html', {'news_list': news_list, 'latest_comments': latest_comments, 'latest_news': latest_news})
+
+
+def like(request, news_id):
+    try:
+        if request.user.is_authenticated:
+            user = auth.get_user(request)
+            news = News.objects.get(pk=news_id)
+            if UserLiked.objects.filter(user=user, liked_post=news).exists():
+                UserLiked.objects.filter(user=user, liked_post=news).delete()
+                news.likes -= 1
+                news.save()
+                return HttpResponseRedirect(reverse('news:one_by_one', args=(news_id,)))
+            else:
+                UserLiked.objects.create(user=user, liked_post=News.objects.get(pk=news_id))
+                news.likes += 1
+                news.save()
+                return HttpResponseRedirect(reverse('news:one_by_one', args=(news_id,)))
+        else:
+            return render(request, 'registration/login.html',
+                          {'help_msg': "Войдите на сайт чтобы получить возможность ставить лайк на пост"})
+    except:
+        raise Http404("Произошла ошибка в ходе выполнения действия!")

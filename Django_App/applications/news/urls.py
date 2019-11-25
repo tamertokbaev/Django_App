@@ -17,4 +17,5 @@ urlpatterns = [
     path('accounts/edit_profile', views.edit_profile, name='edit_profile'),
     path('accounts/<slug:slug>/profile/favourites', views.show_favourites, name='show_favourites'),
     path('accounts/profile/change_avatar', views.profile_avatar, name='change_avatar'),
+    path('news/<int:news_id>/like', views.like, name='like')
 ]

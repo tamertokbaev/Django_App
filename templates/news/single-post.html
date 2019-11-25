@@ -1,5 +1,6 @@
 {% extends 'news/index.html' %}
-    {% block main %}
+{% load static %}
+{% block main %}
     {% if news %}
     <!-- ##### Blog Area Start ##### -->
     <div class="blog-area section-padding-0-80">
@@ -33,7 +34,7 @@
                                         <!-- Post Like & Post Comment -->
                                         <div class="d-flex align-items-center post-like--comments">
                                             <a href="#" class="post-like"><img src="{% static 'img/core-img/eye.png' %}" height="25" width="20" alt=""> <span>{{ news.count_of_views }}</span></a>
-                                            <a href="#" class="post-comment"><img src="{% static 'img/core-img/chat.png' %}" alt=""> <span> {{ count }} </span></a>
+                                            <a href="{% url 'news:like' news.id %}" class="post-comment"><img src="{% static 'img/core-img/like.png' %}" alt=""><span>{{ news.likes }}</span></a>
                                         </div>
                                     </div>
                                     {% if favourite %}

@@ -156,8 +156,8 @@
                                         <p class="post-excerp">{{ news_list.0.news_content|truncatewords:35 }} </p>
                                         <!-- Post Like & Post Comment -->
                                         <div class="d-flex align-items-center">
-                                            <a href="#" class="post-like"><img src="{% static 'img/core-img/like.png' %}" alt=""> <span>392</span></a>
-                                            <a href="#" class="post-comment"><img src="{% static 'img/core-img/chat.png' %}" alt=""> <span>10</span></a>
+                                            <a href="#" class="post-like"><img src="{% static 'img/core-img/like.png' %}" alt=""> <span>{{ news_list.0.likes }}</span></a>
+                                            <a href="#" class="post-comment"><img src="{% static 'img/core-img/eye.png' %}" width="20" height="25" alt=""> <span>{{ news_list.0.count_of_views }}</span></a>
                                         </div>
                                     </div>
                                 </div>
@@ -178,8 +178,8 @@
                                         </a>
                                         <!-- Post Like & Post Comment -->
                                         <div class="d-flex align-items-center">
-                                            <a href="#" class="post-like"><img src="{% static 'img/core-img/like.png' %}" alt=""> <span>392</span></a>
-                                            <a href="#" class="post-comment"><img src="{% static 'img/core-img/chat.png' %}" alt=""> <span>10</span></a>
+                                            <a href="#" class="post-like"><img src="{% static 'img/core-img/like.png' %}" alt=""> <span>{{ news_list.1.likes }}</span></a>
+                                            <a href="#" class="post-comment"><img src="{% static 'img/core-img/eye.png' %}" width="20" height="25" alt=""> <span>{{ news_list.1.count_of_views }}</span></a>
                                         </div>
                                     </div>
                                 </div>
@@ -198,8 +198,8 @@
                                         </a>
                                         <!-- Post Like & Post Comment -->
                                         <div class="d-flex align-items-center">
-                                            <a href="#" class="post-like"><img src="{% static 'img/core-img/like.png' %}" alt=""> <span>392</span></a>
-                                            <a href="#" class="post-comment"><img src="{% static 'img/core-img/chat.png' %}" alt=""> <span>10</span></a>
+                                            <a href="#" class="post-like"><img src="{% static 'img/core-img/like.png' %}" alt=""> <span>{{ news_list.2.likes }}</span></a>
+                                            <a href="#" class="post-comment"><img src="{% static 'img/core-img/eye.png' %}" height="25" width="20" alt=""> <span>{{ news_list.2.count_of_views }}</span></a>
                                         </div>
                                     </div>
                                 </div>
