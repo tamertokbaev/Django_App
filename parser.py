@@ -2,9 +2,9 @@ import requests
 from bs4 import BeautifulSoup
 from django.apps import apps
 
-base_url = 'https://football.kulichki.net/league/2020/h.htm'
+base_url = 'https://football.kulichki.net/uefa_cup/2020/g.htm'
 headers = {'accept': '*/*', 'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, '
-                                          'like Gecko) Chrome/78.0.3904.97 Safari/537.36'}
+                                          'like Gecko) Ch   rome/78.0.3904.97 Safari/537.36'}
 
 
 # Function parsing from sports.kz
@@ -32,20 +32,21 @@ def parse_news(base_url, headers):
         j = 0
         counter = 0
         for i in range(4):
-            if counter >= 2:
+            if counter == 2:
                 a.append(club_list[j+1:7+j+1])
+                counter += 1
                 j += 12
             elif counter == 1:
                 a.append(club_list[j:7+j])
-                j+=12
+                j+= 12
                 counter += 1
+            elif counter == 3:
+                a.append(club_list[j+2:7 + j + 2])
+                j += 12
             else:
                 a.append(club_list[j:7+j])
                 counter += 1
                 j += 12
-            # a.append(club_list[0+j:7+j])
-            # j+=12
-
         return a
     elif requests.status_code == 404:
         print('404 error, page not found!')
@@ -58,7 +59,7 @@ for i in range(4):
 print(a)
 
 # Save to database
-
+#
 Eu_club = apps.get_model('kpl', 'Eu_club')
 for i in range(4):
     club = Eu_club.objects.get(club_name=a[i][0])
@@ -68,5 +69,5 @@ for i in range(4):
     club.count_of_loses = a[i][4]
     club.goal_difference = a[i][5]
     club.earned_points = a[i][6]
-    club.group = 'H'
+    club.group = 'G'
     club.save()

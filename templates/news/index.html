@@ -105,13 +105,13 @@
                                     <li><a href="#">Лига чемпионов УЕФА</a>
                                         <ul class="dropdown">
                                             <li><a href="{% url 'news:section_news' section='uefa-champions-league' %}">Новости</a></li>
-                                            <li><a href="{% url 'kpl:ucl_main_table' %}">Турнирная таблица</a></li>
+                                            <li><a href="{% url 'kpl:euro_main_table' tournament_table='UCL' %}">Турнирная таблица</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="#">Лига Европы УЕФА</a>
                                         <ul class="dropdown">
                                             <li><a href="{% url 'news:section_news' section='uefa-europe-league' %}">Новости</a></li>
-                                            <li><a href="#">Турнирная таблица</a></li>
+                                            <li><a href="{% url 'kpl:euro_main_table' tournament_table='UEL' %}">Турнирная таблица</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="#">Рейтинг </a>
