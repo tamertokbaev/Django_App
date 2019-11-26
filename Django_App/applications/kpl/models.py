@@ -58,3 +58,18 @@ class Eu_cycle(models.Model):
     def __str__(self):
         return self.home_team.club_name + ' ' + self.result + ' ' + self.away_team.club_name + '. Группа ' +\
                self.group + ' ' + self.tournament_played
+
+
+class RatingCountry(models.Model):
+    place = models.IntegerField(null=True, default=1)
+    country_name = models.CharField(max_length=100)
+    season15_16 = models.FloatField(null=True, default=0)
+    season16_17 = models.FloatField(null=True, default=0)
+    season17_18 = models.FloatField(null=True, default=0)
+    season18_19 = models.FloatField(null=True, default=0)
+    season19_20 = models.FloatField(null=True, default=0)
+    total_rating = models.FloatField(null=True, default=0)
+    command_count = models.CharField(max_length=7)
+
+    def __str__(self):
+        return self.country_name + " " + str(self.total_rating)
