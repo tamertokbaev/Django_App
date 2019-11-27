@@ -73,3 +73,10 @@ class RatingCountry(models.Model):
 
     def __str__(self):
         return self.country_name + " " + str(self.total_rating)
+
+
+class RatingCountryFifa(models.Model):
+    place = models.IntegerField(null=True, default=1)
+    country_name = models.CharField(max_length=100)
+    prev_match_rating = models.IntegerField(null=True, default=0)
+    next_match_rating = models.IntegerField(null=True, default=0)

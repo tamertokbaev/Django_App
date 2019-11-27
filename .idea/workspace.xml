@@ -28,9 +28,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -44,7 +44,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Django_App/rating_parse.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/fifa_rat_parser.py" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
@@ -75,7 +75,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.rating_parse">
+  <component name="RunManager" selected="Django server.Django_App">
+    <configuration name="fifa_rat_parser" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="Django_App" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\User\Desktop\Study process\Projects [Python]\Django_App\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fifa_rat_parser.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="parser" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Django_App" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -168,6 +190,7 @@
     </configuration>
     <list>
       <item itemvalue="Django server.Django_App" />
+      <item itemvalue="Python.fifa_rat_parser" />
       <item itemvalue="Python.rating_parse" />
       <item itemvalue="Python.parser_sports" />
       <item itemvalue="Python.parser" />
@@ -263,6 +286,9 @@
       <workItem from="1574752169370" duration="2492000" />
       <workItem from="1574785122460" duration="1885000" />
       <workItem from="1574787373981" duration="6946000" />
+      <workItem from="1574836821879" duration="2710000" />
+      <workItem from="1574842680176" duration="2240000" />
+      <workItem from="1574858940237" duration="4696000" />
     </task>
     <servers />
   </component>
@@ -289,7 +315,8 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Django_App$parser_sports.coverage" NAME="parser_sports Coverage Results" MODIFIED="1574498210285" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Django_App$rating_parse.coverage" NAME="rating_parse Coverage Results" MODIFIED="1574797369922" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Django_App" />
+    <SUITE FILE_PATH="coverage/Django_App$rating_parse.coverage" NAME="rating_parse Coverage Results" MODIFIED="1574837623099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Django_App" />
+    <SUITE FILE_PATH="coverage/Django_App$fifa_rat_parser.coverage" NAME="fifa_rat_parser Coverage Results" MODIFIED="1574864291042" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Django_App$parser.coverage" NAME="parser Coverage Results" MODIFIED="1574589099314" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

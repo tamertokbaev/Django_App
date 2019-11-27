@@ -2,7 +2,8 @@ from django.http import Http404
 from django.shortcuts import render
 from django.apps import apps
 
-from .models import Club, GameCycle, Eu_cycle, Eu_club
+from .models import *
+
 
 # Create your views here.
 
@@ -41,7 +42,7 @@ def tournament_table(request):
         i.matches_played = count_of_wins + count_of_loses + count_of_draws
         i.goals_scored = goals_scored
         i.goals_conceded = goals_conceded
-        i.earned_points = count_of_wins*3 + count_of_draws + i.started_points
+        i.earned_points = count_of_wins * 3 + count_of_draws + i.started_points
         i.save()
     clubs = Club.objects.order_by('-earned_points')
     News = apps.get_model('news', 'News')
@@ -117,7 +118,6 @@ def UCL_groupTable(request, group, tournament_type):
             club_list = Eu_club.objects.filter(tournament_played='UCL', group=group).order_by('-earned_points')
             matches_played = Eu_cycle.objects.filter(tournament_played='UCL', group=group)
             context = {'latest_news': latest_news, 'club_list': club_list, 'matches_played': matches_played}
-            print('SALAMMOLEKULAM')
             return render(request, 'kpl/eu_group.html', context)
         elif tournament_type == 'UEL':
             News = apps.get_model('news', 'News')
@@ -125,7 +125,6 @@ def UCL_groupTable(request, group, tournament_type):
             club_list = Eu_club.objects.filter(tournament_played='UEL', group=group).order_by('-earned_points')
             matches_played = Eu_cycle.objects.filter(tournament_played='UEL', group=group)
             context = {'latest_news': latest_news, 'club_list': club_list, 'matches_played': matches_played}
-            print('eto liga evrop   i')
             return render(request, 'kpl/eu_group.html', context)
         else:
             render(request, 'kpl/eu_group.html', {})
@@ -133,3 +132,21 @@ def UCL_groupTable(request, group, tournament_type):
         raise Http404("Запрашиваемая ваша страница либо перемещена либо навсегда удалена!")
 
 
+def coefficient_table(request):
+    try:
+        countries = RatingCountry.objects.all().order_by('place')
+        News = apps.get_model('news', 'News')
+        latest_news = News.objects.order_by('-publication_date')[:4]
+        return render(request, 'kpl/coefficient_table.html', {'countries': countries, 'latest_news': latest_news})
+    except:
+        raise Http404("Запрашиваемая ваша страница либо перемещена либо навсегда удалена!")
+
+
+def coefficient_table_FIFA(request):
+    try:
+        countries = RatingCountryFifa.objects.all().order_by('place')
+        News = apps.get_model('news', 'News')
+        latest_news = News.objects.order_by('-publication_date')[:4]
+        return render(request, 'kpl/coefficient_table_FIFA.html', {'countries': countries, 'latest_news': latest_news})
+    except:
+        raise Http404("Запрашиваемая ваша страница либо перемещена либо навсегда удалена!")
