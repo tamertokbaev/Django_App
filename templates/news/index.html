@@ -92,7 +92,7 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li class="active"><a href="{% url 'news:index' %}">Домашняя страница</a></li>
+                                    <li class="active"><a href="{% url 'news:index' %}">Главная</a></li>
                                     <li><a href="#">Казахстанская премьер лига</a>
                                         <ul class="dropdown">
                                             <li><a href="{% url 'news:section_news' section='kazakh-premier-league' %}">Новости</a></li>
@@ -101,14 +101,18 @@
                                             <li><a href="#">Статистика</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Сборная</a></li>
-                                    <li><a href="#">Лига чемпионов УЕФА</a>
+                                    <li><a href="#">Сборная</a>
+                                        <ul class="dropdown">
+                                            <li><a href="{% url 'news:section_news' section='national-team' %}">Новости</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Лига чемпионов</a>
                                         <ul class="dropdown">
                                             <li><a href="{% url 'news:section_news' section='uefa-champions-league' %}">Новости</a></li>
                                             <li><a href="{% url 'kpl:euro_main_table' tournament_table='UCL' %}">Турнирная таблица</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Лига Европы УЕФА</a>
+                                    <li><a href="#">Лига Европы</a>
                                         <ul class="dropdown">
                                             <li><a href="{% url 'news:section_news' section='uefa-europe-league' %}">Новости</a></li>
                                             <li><a href="{% url 'kpl:euro_main_table' tournament_table='UEL' %}">Турнирная таблица</a></li>
@@ -120,7 +124,7 @@
                                             <li><a href="{% url 'kpl:coefficient_table' %}">Рейтинг UEFA</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="{% url 'news:archive' %}">Архив новостей</a></li>
+                                    <li><a href="{% url 'news:archive' %}">Архив</a></li>
                                 </ul>
                             </div>
                             <!-- Nav End -->

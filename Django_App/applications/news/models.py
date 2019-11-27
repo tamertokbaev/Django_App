@@ -7,6 +7,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     birth_date = models.DateTimeField(null=True, blank=True, default=timezone.now)
@@ -43,6 +44,7 @@ class News(models.Model):
         (UEL, 'Лига Европы УЕФА'),
     ]
 
+    news_author = models.ForeignKey(User, on_delete=models.CASCADE, default=True)
     news_title = models.CharField('Title of the news', max_length=200)
     news_sh_description = models.CharField('Short description of the news', max_length=800)
     news_content = RichTextUploadingField()
@@ -54,6 +56,10 @@ class News(models.Model):
 
     def __str__(self):
         return self.news_title
+
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('news:one_by_one', args=[str(self.id)])
 
 
 class Comment(models.Model):
