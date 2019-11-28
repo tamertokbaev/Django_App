@@ -1,20 +1,51 @@
-<!DOCTYPE html>
-<htmla lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Подтверждение регистрации</title>
-</head>
-<body>
-    Для завершения регистрации мы выслали Вам электронное письмо с 4-х значным кодом.
-    Прошу ввести его здесь для завершения регистрации!<br>
-    <form action="{% url 'news:reg_confirm'%}" method="post">
-        {% csrf_token %}
-        <input type="number" name="code_by_user">
-        <button type="submit">Отправить</button>
-    </form>
-    {% if result %}
-        <br>
-        {{ result }}
-    {% endif %}
-</body>
-</htmla>
+{% extends 'news/index.html' %}
+{% block main %}
+    <!-- ##### Blog Area Start ##### -->
+    <div class="blog-area section-padding-0-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="blog-posts-area">
+                        <!-- Single Featured Post -->
+                        <div class="single-blog-post featured-post mb-30">
+                            <div class="post-data">
+                                <a href="#" class="post-catagory">Мы выслали 4-значный электронный код вам на почту!<br> Прошу введите его ниже!</a>
+                                <div class="post-meta">
+                                    <p class="post-excerp">
+                                        <form method="post" action="{% url 'news:reg_confirm' %}">
+                                            {% csrf_token %}
+                                            <input type="number" name="code_by_user">
+                                            <button type="submit" class="newspaper-btn">Отправить</button>
+                                        </form>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="blog-sidebar-area">
+                        <!-- Popular News Widget -->
+                        <div class="popular-news-widget mb-50">
+                            <h3>Последние новости</h3>
+                            {% if latest_news %}
+                                {% for news in latest_news %}
+                                    <!-- Single Popular Blog -->
+                                    <div class="single-popular-post">
+                                        <a href="{% url 'news:one_by_one' news.id %}">
+                                            <h6><span>{{ forloop.counter }}.</span> {{ news.news_title }}</h6>
+                                        </a>
+                                        <p>{{ news.publication_date }}</p>
+                                    </div>
+                                {% endfor %}
+                            {% else %}
+                                Пока еще нет последних новостей.
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Blog Area End ##### -->
+{% endblock %}

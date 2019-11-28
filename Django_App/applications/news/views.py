@@ -142,6 +142,7 @@ def edit_profile(request):
             # username = str(request.POST['username'])
             first_name = str(request.POST['first_name'])
             last_name = str(request.POST['last_name'])
+            birthday_date = request.POST['birth_date']
             # if username.strip().count(" ") >= 1:
             #     return render(request, 'news/edit_profile.html',
             #                   {'result': "Имя пользователя не должно содержать пробелы"})
@@ -149,9 +150,14 @@ def edit_profile(request):
             # user.username = username.strip()
             user.first_name = first_name.strip()
             user.last_name = last_name.strip()
+            user.profile.birth_date = birthday_date
             user.save()
+            latest_news = News.objects.order_by('-publication_date')[:4]
+            latest_comments = Comment.objects.order_by('-comment_date')[:4]
             return render(request, 'news/profile.html', {'user': user,
-                                                              'result': 'Ваш профиль был успешно изменен'})
+                                                         'result': 'Ваш профиль был успешно изменен',
+                                                         'latest_news': latest_news,
+                                                         'latest_comments': latest_comments})
     except:
         raise Http404('Упс... Что-то пошло не так...')
     return render(request, 'news/profile.html', {})
@@ -193,11 +199,12 @@ def profile_avatar(request):
             user.save()
     except:
         raise Http404("Возникла ошибка! Возможно этот пользователь был удален!")
-    return HttpResponseRedirect(reverse('news:profile'))
+    return HttpResponseRedirect(reverse('news:profile', args=(request.user.username,)))
 
 
 def section_news(request, section):
     try:
+        news_list = []
         if section == 'kazakh-premier-league':
             news_list = News.objects.order_by('publication_date').filter(news_tag='Казахстанская-премьер лига')
         elif section == 'uefa-champions-league':

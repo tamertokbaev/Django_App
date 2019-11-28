@@ -10,7 +10,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    birth_date = models.DateTimeField(null=True, blank=True, default=timezone.now)
+    birth_date = models.DateField(null=True, blank=True, default=timezone.now)
     avatar = models.ImageField(upload_to='images/avatars/', null=True, default='images/avatars/defavatar.jpg')
 
     def __str__(self):

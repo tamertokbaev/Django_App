@@ -46,7 +46,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/fifa_rat_parser.py" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.templateLanguages.PyTemplateLanguageModulesConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="OPEN_URL_DIALOG">
@@ -289,7 +289,9 @@
       <workItem from="1574836821879" duration="2710000" />
       <workItem from="1574842680176" duration="2240000" />
       <workItem from="1574858940237" duration="4766000" />
-      <workItem from="1574865365082" duration="2893000" />
+      <workItem from="1574865365082" duration="2955000" />
+      <workItem from="1574871966695" duration="7681000" />
+      <workItem from="1574917406783" duration="3055000" />
     </task>
     <servers />
   </component>

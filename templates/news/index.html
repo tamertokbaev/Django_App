@@ -45,7 +45,7 @@
                                     </div>
                                 {% else %}
                                     <div class="login d-flex">
-                                        <a href="{% url 'login' %}">Войти</a>
+                                        <a href="{% url 'login' %}?next={{ request.path }}">Войти</a>
                                         <a href="{% url 'news:register' %}">Зарегистрироваться</a>
                                     </div>
                                 {% endif %}
@@ -223,7 +223,7 @@
                             <a href="{% url 'news:one_by_one' news.id %}" class="post-catagory">{{ news.news_sh_description }}</a>
                             <div class="post-meta">
                                 <a href="{% url 'news:one_by_one' news.id %}" class="post-title">
-                                    <h6>{{ news.news_content|truncatewords:10 }}</h6>
+                                    <h6>{% autoescape off %}{{ news.news_content|truncatewords:10 }}{% endautoescape %}</h6>
                                 </a>
                                 <p class="post-date"><span>{{ news.publication_date }}</span></p>
                             </div>

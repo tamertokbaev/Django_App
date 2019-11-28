@@ -11,7 +11,12 @@
                         <!-- Single Featured Post -->
                         <div class="single-blog-post featured-post mb-30">
                             <div class="post-thumb">
-                                <a href="{% url 'news:profile' user.username %}"><img src="{{ user.profile.avatar.url }}" width="150" height="150" alt=""></a>
+                                <a href="{% url 'news:profile' user.username %}"><img src="{{ user.profile.avatar.url }}" width="250" height="150" alt=""></a>
+                                <form method="post" action="{% url 'news:change_avatar' %}" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <br><input type="file" accept="image/*" name="avatar" required class="form-control"><br><br>
+                                    <button type="submit" class="newspaper-btn">Изменить фотографию</button>
+                                </form>
                             </div>
                             <div class="post-data">
                                 <a href="{% url 'news:profile' user.username %}" class="post-catagory">{{ user.username }}</a>
@@ -35,7 +40,7 @@
                                             </div>
                                             <div class="col-12">
                                                 Дата рождения:<br><br>
-                                                <input type="date" class="form-control" name="date" placeholder="Дата рождения" required value="{{ user.profile.birth_date }}"><br>
+                                                <input type="date" class="form-control" name="birth_date" placeholder="Дата рождения" required value="{{ user.profile.birth_date }}"><br>
                                             </div>
                                             <div class="col-12 text-center">
                                                 <button class="btn newspaper-btn mt-30 w-100" type="submit">Изменить</button>
