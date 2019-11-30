@@ -139,15 +139,10 @@ def show_profile(request, slug):
 def edit_profile(request):
     try:
         if request.method == 'POST':
-            # username = str(request.POST['username'])
             first_name = str(request.POST['first_name'])
             last_name = str(request.POST['last_name'])
             birthday_date = request.POST['birth_date']
-            # if username.strip().count(" ") >= 1:
-            #     return render(request, 'news/edit_profile.html',
-            #                   {'result': "Имя пользователя не должно содержать пробелы"})
             user = auth.get_user(request)
-            # user.username = username.strip()
             user.first_name = first_name.strip()
             user.last_name = last_name.strip()
             user.profile.birth_date = birthday_date

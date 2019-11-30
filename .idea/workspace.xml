@@ -44,9 +44,9 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/fifa_rat_parser.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.templateLanguages.PyTemplateLanguageModulesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="OPEN_URL_DIALOG">
@@ -291,7 +291,12 @@
       <workItem from="1574858940237" duration="4766000" />
       <workItem from="1574865365082" duration="2955000" />
       <workItem from="1574871966695" duration="7681000" />
-      <workItem from="1574917406783" duration="3055000" />
+      <workItem from="1574917406783" duration="3129000" />
+      <workItem from="1574935633404" duration="1503000" />
+      <workItem from="1574937780009" duration="367000" />
+      <workItem from="1574957234087" duration="3205000" />
+      <workItem from="1574961710507" duration="612000" />
+      <workItem from="1575111802648" duration="1484000" />
     </task>
     <servers />
   </component>
