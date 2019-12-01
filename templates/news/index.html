@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +10,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Футбольные новости</title>
+    <title>{% trans 'Футбольные новости' %}</title>
 
     <!-- Favicon -->
     <link rel="icon" href="{% static 'img/core-img/favicon.ico' %}">
@@ -23,7 +24,6 @@
 <body>
     <!-- ##### Header Area Start ##### -->
     <header class="header-area">
-
         <!-- Top Header Area -->
         <div class="top-header-area">
             <div class="container">
@@ -41,19 +41,33 @@
                                 {% if user.is_authenticated %}
                                     <div class="login d-flex">
                                         <a href="{% url 'news:profile' user.username%}">{{ user.username }}</a>
-                                        <a href="{% url 'logout' %}">Выйти</a>
+                                        <a href="{% url 'logout' %}">{% trans 'Выйти' %}</a>
                                     </div>
                                 {% else %}
                                     <div class="login d-flex">
-                                        <a href="{% url 'login' %}?next={{ request.path }}">Войти</a>
-                                        <a href="{% url 'news:register' %}">Зарегистрироваться</a>
+                                        <a href="{% url 'login' %}?next={{ request.path }}">{% trans 'Войти' %}</a>
+                                        <a href="{% url 'news:register' %}">{% trans 'Зарегистрироваться' %}</a>
                                     </div>
                                 {% endif %}
                                 <!-- Search Form -->
+                                <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                                    <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}" />
+                                    <select name="language">
+                                        {% get_current_language as LANGUAGE_CODE %}
+                                        {% get_available_languages as LANGUAGES %}
+                                        {% get_language_info_list for LANGUAGES as languages %}
+                                        {% for language in languages %}
+                                            <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
+                                                {{ language.name_local }} ({{ language.code }})
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                    <input type="submit" value="{% trans 'Изменить' %}" />
+                                </form>
                                 <div class="search-form">
                                     <form action="{% url 'news:search' %}" method="post">
                                         {% csrf_token %}
-                                        <input type="search" name="search" class="form-control" placeholder="Поиск по содержимому...">
+                                        <input type="search" name="search" class="form-control" placeholder="{% trans 'Поиск...' %}">
                                         <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                                     </form>
                                 </div>
@@ -92,39 +106,39 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li class="active"><a href="{% url 'news:index' %}">Главная</a></li>
-                                    <li><a href="#">Казахстанская премьер лига</a>
+                                    <li class="active"><a href="{% url 'news:index' %}">{% trans 'Главная' %}</a></li>
+                                    <li><a href="#">{% trans 'Казахстанская премьер лига' %}</a>
                                         <ul class="dropdown">
-                                            <li><a href="{% url 'news:section_news' section='kazakh-premier-league' %}">Новости</a></li>
-                                            <li><a href="{% url 'kpl:tournament_table' %}">Турнирная таблица</a></li>
-                                            <li><a href="{% url 'kpl:calendar' %}">Календарь игр</a></li>
-                                            <li><a href="#">Статистика</a></li>
+                                            <li><a href="{% url 'news:section_news' section='kazakh-premier-league' %}">{% trans 'Новости' %}</a></li>
+                                            <li><a href="{% url 'kpl:tournament_table' %}">{% trans 'Турнирная таблица' %}</a></li>
+                                            <li><a href="{% url 'kpl:calendar' %}">{% trans 'Календарь игр' %}</a></li>
+                                            <li><a href="#">{% trans 'Статистика' %}</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Сборная</a>
+                                    <li><a href="#">{% trans 'Сборная' %}</a>
                                         <ul class="dropdown">
-                                            <li><a href="{% url 'news:section_news' section='national-team' %}">Новости</a></li>
+                                            <li><a href="{% url 'news:section_news' section='national-team' %}">{% trans 'Новости' %}</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Лига чемпионов</a>
+                                    <li><a href="#">{% trans 'Лига чемпионов' %}</a>
                                         <ul class="dropdown">
-                                            <li><a href="{% url 'news:section_news' section='uefa-champions-league' %}">Новости</a></li>
-                                            <li><a href="{% url 'kpl:euro_main_table' tournament_table='UCL' %}">Турнирная таблица</a></li>
+                                            <li><a href="{% url 'news:section_news' section='uefa-champions-league' %}">{% trans 'Новости' %}</a></li>
+                                            <li><a href="{% url 'kpl:euro_main_table' tournament_table='UCL' %}">{% trans 'Турнирная таблица' %}</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Лига Европы</a>
+                                    <li><a href="#">{% trans 'Лига Европы' %}</a>
                                         <ul class="dropdown">
-                                            <li><a href="{% url 'news:section_news' section='uefa-europe-league' %}">Новости</a></li>
-                                            <li><a href="{% url 'kpl:euro_main_table' tournament_table='UEL' %}">Турнирная таблица</a></li>
+                                            <li><a href="{% url 'news:section_news' section='uefa-europe-league' %}">{% trans 'Новости' %}</a></li>
+                                            <li><a href="{% url 'kpl:euro_main_table' tournament_table='UEL' %}">{% trans 'Турнирная таблица' %}</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Рейтинг </a>
+                                    <li><a href="#">{% trans 'Рейтинг' %}</a>
                                         <ul class="dropdown">
-                                            <li><a href="{% url 'kpl:coefficient_table_FIFA' %}">Рейтинг FIFA</a></li>
-                                            <li><a href="{% url 'kpl:coefficient_table' %}">Рейтинг UEFA</a></li>
+                                            <li><a href="{% url 'kpl:coefficient_table_FIFA' %}">{% trans 'Рейтинг FIFA' %}</a></li>
+                                            <li><a href="{% url 'kpl:coefficient_table' %}">{% trans 'Рейтинг UEFA' %}</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="{% url 'news:archive' %}">Архив</a></li>
+                                    <li><a href="{% url 'news:archive' %}">{% trans 'Архив' %}</a></li>
                                 </ul>
                             </div>
                             <!-- Nav End -->
@@ -244,7 +258,7 @@
             <div class="row">
                 <div class="col-12 col-lg-8">
                     <div class="section-heading">
-                        <h6>Последние новости</h6>
+                        <h6>{% trans 'Последние новости' %}</h6>
                     </div>
 
                     <div class="row">
@@ -314,7 +328,7 @@
                 <div class="col-12 col-lg-4">
                     <!-- Popular News Widget -->
                     <div class="latest-comments-widget">
-                            <h3>Последние комментарии</h3>
+                            <h3>{% trans 'Последние комментарии' %}</h3>
                             {% if latest_comments %}
                                 {% for comment in latest_comments %}
                                     <!-- Single Comments -->
@@ -329,7 +343,7 @@
                                     </div>
                                 {% endfor %}
                             {% else %}
-                                Комментарии пока оставлены не были
+                                {% trans 'Комментарии пока оставлены не были' %}
                             {% endif %}
                     </div>
                 </div>

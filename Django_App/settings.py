@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # 'social_django',
     'kpl.apps.KplConfig',
     'news.apps.NewsConfig',
     'ckeditor',
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -54,6 +56,14 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
+
+# AUTHENTICATION_BACKENDS = (
+#     'social_core.backends.vk.VKOAuth2',          # бекенд авторизации через ВКонтакте
+#     'django.contrib.auth.backends.ModelBackend', # бекенд классической аутентификации, чтобы работала авторизация через обычный логин и пароль
+# )
+
 
 # This used for uploading images on the server
 MEDIA_URL = '/media/'
@@ -87,12 +97,17 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # 'social_django.context_processors.backends',
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'Django_App.wsgi.application'
+
+SOCIAL_AUTH_VK_OAUTH2_KEY = 'A7TuVHDvf3CRzlVx1vca'
+SOCIAL_AUTH_VK_OAUTH2_SECRET = '1e847bde1e847bde1e847bde981eea364711e841e847bde4366f9f4c884dbda74e00066'
+SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['email']
 
 
 # Database
@@ -128,7 +143,16 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-EN'
+LANGUAGE_CODE = 'ru'
+
+LANGUAGES = (
+    ('ru', 'Russian'),
+    ('en', 'English')
+)
+
+LOCALE_PATHS = (
+    'locale',
+)
 
 TIME_ZONE = 'UTC'
 

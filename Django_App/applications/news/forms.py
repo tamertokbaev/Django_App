@@ -1,17 +1,20 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.utils.translation import ugettext_lazy as _
 
 # Создал новую форму чтобы добавить такие поля к стандартной регистрации Django как: Электронная почта, Имя, Фамилия
 
 
 class CustomRegistrationForm(UserCreationForm):
-    email = forms.EmailField(required=True, widget=forms.TextInput(attrs={'placeholder': 'Электронный адрес', 'class': 'form-control'}))
-    first_name = forms.CharField(required=True, widget=forms.TextInput(attrs={'placeholder': ' Имя', 'class': 'form-control'}))
-    last_name = forms.CharField(required=True, widget=forms.TextInput(attrs={'placeholder': ' Фамилия', 'class': 'form-control'}))
-    username = forms.CharField(required=True, widget=forms.TextInput(attrs={'placeholder': ' Имя', 'class': 'form-control'}))
-    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': ' Пароль', 'class': 'form-control'}))
-    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': ' Подтверждение пароля', 'class': 'form-control'}))
+    email = forms.EmailField(required=True, widget=forms.TextInput(attrs={'placeholder': 'Электронный адрес', 'class': 'form-control'}), label=_('E-Mail address'))
+    first_name = forms.CharField(required=True, widget=forms.TextInput(attrs={'placeholder': ' Имя', 'class': 'form-control'}), label=_('First Name'))
+    last_name = forms.CharField(required=True, widget=forms.TextInput(attrs={'placeholder': ' Фамилия', 'class': 'form-control'}), label=_('Last Name'))
+    username = forms.CharField(required=True, widget=forms.TextInput(attrs={'placeholder': ' Имя', 'class': 'form-control'}), label=_('Username'))
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': ' Пароль', 'class': 'form-control'}),
+                                label=_('Password'))
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': ' Подтверждение пароля',
+                                                                  'class': 'form-control'}), label=_('Repeat password'))
 
     class Meta:
         model = User
