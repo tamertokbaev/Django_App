@@ -46,7 +46,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="OPEN_URL_DIALOG">
@@ -300,6 +300,7 @@
       <workItem from="1575121625950" duration="7191000" />
       <workItem from="1575181040187" duration="11089000" />
       <workItem from="1575202141714" duration="5148000" />
+      <workItem from="1575216823481" duration="280000" />
     </task>
     <servers />
   </component>
