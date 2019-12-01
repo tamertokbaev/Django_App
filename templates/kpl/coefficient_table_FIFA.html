@@ -1,5 +1,6 @@
 {% extends 'news/index.html' %}
 {% load static %}
+{% load i18n %}
     {% block main %}
         <link rel="stylesheet" href="{% static 'coefficient_table_FIFA.css' %}">
         <!-- ##### Blog Area Start ##### -->
@@ -11,15 +12,15 @@
                         <!-- Single Featured Post -->
                         <div class="single-blog-post featured-post mb-30">
                             <div class="post-data">
-                                <a href="#" class="post-catagory">Рейтинг сборных FIFA<br><br></a>
+                                <a href="#" class="post-catagory">{% trans 'Рейтинг сборных FIFA' %}<br><br></a>
                                     <div class="row">
                                         {% if countries %}
                                             <table>
                                             <tr>
                                                 <th></th>
-                                                <th>Страна</th>
-                                                <th>24 октября</th>
-                                                <th>19 сентября</th>
+                                                <th>{% trans 'Страна' %}</th>
+                                                <th>{% trans '24 октября' %}</th>
+                                                <th>{% trans '19 сентября' %}</th>
                                             </tr>
                                                 {% for country in countries %}
                                                     <tr>
@@ -31,9 +32,9 @@
                                                 {% endfor %}
                                             </table>
                                         {%  else %}
-                                            Турнирная таблица отсутствует.
+                                            {% trans 'Турнирная таблица отсутствует.' %}
                                         {% endif %}
-                                        <br>Последнее обновление: 24 октября
+                                        <br>{% trans 'Последнее обновление: 24 октября' %}
                                     </div>
                             </div>
                         </div>
@@ -43,7 +44,7 @@
                     <div class="blog-sidebar-area">
                         <!-- Popular News Widget -->
                         <div class="popular-news-widget mb-50">
-                            <h3>Последние новости</h3>
+                            <h3>{% trans 'Последние новости' %}</h3>
                             {% if latest_news %}
                                 {% for news in latest_news %}
                                     <!-- Single Popular Blog -->
@@ -55,7 +56,7 @@
                                     </div>
                                 {% endfor %}
                             {% else %}
-                                Пока еще нет последних новостей.
+                                {% trans 'Пока еще нет последних новостей.' %}
                             {% endif %}
                         </div>
                     </div>

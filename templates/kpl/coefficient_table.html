@@ -1,4 +1,5 @@
 {% extends 'news/index.html' %}
+{% load i18n %}
 {% load static %}
     {% block main %}
         <link rel="stylesheet" href="{% static 'coefficient_table.css' %}">
@@ -11,13 +12,13 @@
                         <!-- Single Featured Post -->
                         <div class="single-blog-post featured-post mb-30">
                             <div class="post-data">
-                                <a href="#" class="post-catagory">Таблица коэффицентов УЕФА<br><br></a>
+                                <a href="#" class="post-catagory">{% trans 'Таблица коэффицентов УЕФА' %}<br><br></a>
                                 <div class="post-meta">
                                     <p class="post-excerp">
-                                    1-4 места - 4 клуба в Лиге чемпионов и 3 клуба в Лиге Европы<br>
-                                    5-6 места - 3 клуба в Лиге чемпионов и 3 клуба в Лиге Европы<br>
-                                    7-15 места - 2 клуба в Лиге чемпионов и 3 клуба в Лиге Европы<br>
-                                    16-55 места - 1 клуб в Лиге чемпионов и 3 клуба в Лиге Европы
+                                    {% trans '1-4 места - 4 клуба в Лиге чемпионов и 3 клуба в Лиге Европы' %}<br>
+                                    {% trans '5-6 места - 3 клуба в Лиге чемпионов и 3 клуба в Лиге Европы' %}<br>
+                                    {% trans '7-15 места - 2 клуба в Лиге чемпионов и 3 клуба в Лиге Европы' %}<br>
+                                    {% trans "16-55 места - 1 клуб в Лиге чемпионов и 3 клуба в Лиге Европы" %}
                                     </p>
                                 </div>
                                     <div class="row">
@@ -25,14 +26,14 @@
                                             <table>
                                             <tr>
                                                 <th></th>
-                                                <th>Страна</th>
+                                                <th>{% trans 'Страна' %}</th>
                                                 <th>2015/2016</th>
                                                 <th>2016/2017</th>
                                                 <th>2017/2018</th>
                                                 <th>2018/2019</th>
                                                 <th>2019/2020</th>
-                                                <th>Рейтинг</th>
-                                                <th>Команды</th>
+                                                <th>{% trans 'Рейтинг' %}</th>
+                                                <th>{% trans 'Команды' %}</th>
                                             </tr>
                                                 {% for country in countries %}
                                                     <tr>
@@ -49,9 +50,9 @@
                                                 {% endfor %}
                                             </table>
                                         {%  else %}
-                                            Турнирная таблица отсутствует.
+                                            {% trans 'Турнирная таблица отсутствует.' %}
                                         {% endif %}
-                                        <br>Последнее обновление: 27 ноября
+                                        <br>{% trans 'Последнее обновление: 27 ноября' %}
                                     </div>
                             </div>
                         </div>
@@ -61,7 +62,7 @@
                     <div class="blog-sidebar-area">
                         <!-- Popular News Widget -->
                         <div class="popular-news-widget mb-50">
-                            <h3>Последние новости</h3>
+                            <h3>{% trans 'Последние новости' %}</h3>
                             {% if latest_news %}
                                 {% for news in latest_news %}
                                     <!-- Single Popular Blog -->
@@ -73,7 +74,7 @@
                                     </div>
                                 {% endfor %}
                             {% else %}
-                                Пока еще нет последних новостей.
+                                {% trans 'Пока еще нет последних новостей.' %}
                             {% endif %}
                         </div>
                     </div>

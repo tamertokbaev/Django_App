@@ -51,7 +51,7 @@
                                 {% endif %}
                                 <!-- Search Form -->
                                 <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
-                                    <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}" />
+                                    <input name="next" type="hidden" value="{{ request.get_full_path }}" />
                                     <select name="language">
                                         {% get_current_language as LANGUAGE_CODE %}
                                         {% get_available_languages as LANGUAGES %}

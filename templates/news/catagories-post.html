@@ -1,4 +1,5 @@
 {% extends 'news/index.html' %}
+{% load i18n %}
     {% block main %}
     <!-- ##### Blog Area Start ##### -->
     {% if news_list %}
@@ -26,18 +27,6 @@
                         </div>
                         {% endfor %}
                     </div>
-{##}
-{#                    <nav aria-label="Page navigation example">#}
-{#                        <ul class="pagination mt-50">#}
-{#                            <li class="page-item active"><a class="page-link" href="#">1</a></li>#}
-{#                            <li class="page-item"><a class="page-link" href="#">2</a></li>#}
-{#                            <li class="page-item"><a class="page-link" href="#">3</a></li>#}
-{#                            <li class="page-item"><a class="page-link" href="#">4</a></li>#}
-{#                            <li class="page-item"><a class="page-link" href="#">5</a></li>#}
-{#                            <li class="page-item"><a class="page-link" href="#">...</a></li>#}
-{#                            <li class="page-item"><a class="page-link" href="#">10</a></li>#}
-{#                        </ul>#}
-{#                    </nav>#}
                 </div>
 
                 <div class="col-12 col-lg-4">
@@ -45,7 +34,7 @@
 
                         <!-- Popular News Widget -->
                         <div class="popular-news-widget mb-50">
-                            <h3>Последние новости</h3>
+                            <h3>{% trans 'Последние новости' %}</h3>
                             {% if latest_news %}
                                 {% for news in latest_news %}
                                     <!-- Single Popular Blog -->
@@ -57,14 +46,14 @@
                                     </div>
                                 {% endfor %}
                             {% else %}
-                                Пока еще нет последних новостей.
+                                {% trans 'Пока еще нет последних новостей' %}
                             {% endif %}
                         </div>
 
 
                         <!-- Latest Comments Widget -->
                         <div class="latest-comments-widget">
-                            <h3>Последние комментарии</h3>
+                            <h3>{% trans 'Последние комментарии' %}</h3>
                             {% if latest_comments %}
                                 {% for comment in latest_comments %}
                                     <!-- Single Comments -->
@@ -79,7 +68,7 @@
                                     </div>
                                 {% endfor %}
                             {% else %}
-                                Комментарии пока оставлены не были
+                                {% trans 'Комментарии пока оставлены не были' %}
                             {% endif %}
                         </div>
                     </div>
@@ -88,7 +77,7 @@
         </div>
     </div>
     {% else %}
-        Пока новостей нет
+        {% trans 'Пока новостей нет' %}
     {% endif %}
     <!-- ##### Blog Area End ##### -->
     {% endblock %}

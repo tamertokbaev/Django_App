@@ -1,4 +1,5 @@
 {% extends 'news/index.html' %}
+{% load i18n %}
 {% block main %}
     <!-- ##### Blog Area Start ##### -->
     <div class="blog-area section-padding-0-80">
@@ -10,17 +11,17 @@
                         <div class="single-blog-post featured-post mb-30">
                             <div class="post-data">
                                 {% if club_list %}
-                                <a href="#" class="post-catagory">Группа {{ club_list.0.group }}<br><br></a>
+                                <a href="#" class="post-catagory">{% trans 'Группа' %} {{ club_list.0.group }}<br><br></a>
                                     <div class="post-data">
                                             <table>
                                             <tr>
-                                                <th>Название</th>
-                                                <th>Количество игр</th>
-                                                <th>Победы</th>
-                                                <th>Ничьи</th>
-                                                <th>Поражения</th>
-                                                <th>Разница</th>
-                                                <th>Очки</th>
+                                                <th>{% trans 'Название' %}</th>
+                                                <th>{% trans 'Количество игр' %}</th>
+                                                <th>{% trans 'Победы' %}</th>
+                                                <th>{% trans 'Ничьи' %}</th>
+                                                <th>{% trans 'Поражения' %}</th>
+                                                <th>{% trans 'Разница' %}</th>
+                                                <th>{% trans 'Разница' %}</th>
                                             </tr>
                                             {% for i in club_list %}
                                                 <tr>
@@ -37,11 +38,11 @@
                                     </div>
                             </div>
                             {% else %}
-                                    Запрашиваемая группа не найдена!
+                                {% trans 'Запрашиваемая группа не найдена!' %}
                             {% endif %}
                         {% if matches_played %}
                             <a href="#" class="post-title">
-                                    <h6>Сыгранные матчи в Группе {{ club_list.0.group }}<br><br></h6>
+                                    <h6>{% trans "Сыгранные матчи в Группе" %} {{ club_list.0.group }}<br><br></h6>
                             </a>
                             {% for match in matches_played %}
                                 <div class="post-meta">
@@ -49,7 +50,7 @@
                                 </div>
                             {% endfor %}
                         {% else %}
-                            Пока матчей между командами сыграно не было
+                            {% trans 'Пока матчей между командами сыграно не было' %}
                         {% endif %}
                         </div>
                     </div>
@@ -58,7 +59,7 @@
                     <div class="blog-sidebar-area">
                         <!-- Popular News Widget -->
                         <div class="popular-news-widget mb-50">
-                            <h3>Последние новости</h3>
+                            <h3>{% trans 'Последние новости' %}</h3>
                             {% if latest_news %}
                                 {% for news in latest_news %}
                                     <!-- Single Popular Blog -->
@@ -70,7 +71,7 @@
                                     </div>
                                 {% endfor %}
                             {% else %}
-                                Пока еще нет последних новостей.
+                                {% trans 'Пока еще нет последних новостей.' %}
                             {% endif %}
                         </div>
                     </div>

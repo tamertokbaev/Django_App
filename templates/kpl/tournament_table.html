@@ -1,4 +1,5 @@
 {% extends 'news/index.html' %}
+{% load i18n %}
     {% block main %}
     <!-- ##### Blog Area Start ##### -->
     <div class="blog-area section-padding-0-80">
@@ -9,21 +10,21 @@
                         <!-- Single Featured Post -->
                         <div class="single-blog-post featured-post mb-30">
                             <div class="post-data">
-                                <a href="#" class="post-catagory">Турнирная таблица Казахстанской Премьер-Лиги<br><br></a>
+                                <a href="#" class="post-catagory">{% trans 'Турнирная таблица Казахстанской Премьер-Лиги' %}<br><br></a>
                                 <form method="post" action="">
                                     {% csrf_token %}
                                     <div class="row">
                                             {% if club_list %}
                                                 <table>
                                                 <tr>
-                                                    <th>Название клуба</th>
-                                                    <th>Количество игр</th>
-                                                    <th>Победы</th>
-                                                    <th>Ничьи</th>
-                                                    <th>Поражения</th>
-                                                    <th>ГЗ</th>
-                                                    <th>ГП</th>
-                                                    <th>Очки</th>
+                                                    <th>{% trans 'Название клуба' %}</th>
+                                                    <th>{% trans 'Количество игр' %}</th>
+                                                    <th>{% trans 'Победы' %}</th>
+                                                    <th>{% trans 'Ничьи' %}</th>
+                                                    <th>{% trans 'Поражения' %}</th>
+                                                    <th>{% trans 'ГЗ' %}</th>
+                                                    <th>{% trans 'ГП' %}</th>
+                                                    <th>{% trans 'Очки' %}</th>
                                                 </tr>
                                                     {% for i in club_list %}
                                                         <tr>
@@ -39,7 +40,7 @@
                                                     {% endfor %}
                                                 </table>
                                             {%  else %}
-                                                Турнирная таблица отсутствует.
+                                                {% trans 'Турнирная таблица отсутствует.' %}
                                             {% endif %}
                                     </div>
                                 </form>
@@ -54,7 +55,7 @@
                     <div class="blog-sidebar-area">
                         <!-- Popular News Widget -->
                         <div class="popular-news-widget mb-50">
-                            <h3>Последние новости</h3>
+                            <h3>{% trans 'Последние новости' %}</h3>
                             {% if latest_news %}
                                 {% for news in latest_news %}
                                     <!-- Single Popular Blog -->
@@ -66,7 +67,7 @@
                                     </div>
                                 {% endfor %}
                             {% else %}
-                                Пока еще нет последних новостей.
+                                {% trans 'Пока еще нет последних новостей.' %}
                             {% endif %}
                         </div>
                     </div>

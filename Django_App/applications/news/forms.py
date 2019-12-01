@@ -7,13 +7,13 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class CustomRegistrationForm(UserCreationForm):
-    email = forms.EmailField(required=True, widget=forms.TextInput(attrs={'placeholder': 'Электронный адрес', 'class': 'form-control'}), label=_('E-Mail address'))
-    first_name = forms.CharField(required=True, widget=forms.TextInput(attrs={'placeholder': ' Имя', 'class': 'form-control'}), label=_('First Name'))
-    last_name = forms.CharField(required=True, widget=forms.TextInput(attrs={'placeholder': ' Фамилия', 'class': 'form-control'}), label=_('Last Name'))
-    username = forms.CharField(required=True, widget=forms.TextInput(attrs={'placeholder': ' Имя', 'class': 'form-control'}), label=_('Username'))
-    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': ' Пароль', 'class': 'form-control'}),
+    email = forms.EmailField(required=True, widget=forms.TextInput(attrs={'placeholder': _('Электронный адрес'), 'class': 'form-control'}))
+    first_name = forms.CharField(required=True, widget=forms.TextInput(attrs={'placeholder': _('Имя'), 'class': 'form-control'}))
+    last_name = forms.CharField(required=True, widget=forms.TextInput(attrs={'placeholder': _('Фамилия'), 'class': 'form-control'}))
+    username = forms.CharField(required=True, widget=forms.TextInput(attrs={'placeholder': _('Имя пользователя'), 'class': 'form-control'}))
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': _('Пароль'), 'class': 'form-control'}),
                                 label=_('Password'))
-    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': ' Подтверждение пароля',
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': _('Подтверждение пароля'),
                                                                   'class': 'form-control'}), label=_('Repeat password'))
 
     class Meta:
@@ -31,12 +31,12 @@ class CustomRegistrationForm(UserCreationForm):
             self.fields[field_name].help_text = None
 
         # Переопределение содержимых label которые отображаются в HTML формах на свои
-        self.fields['password1'].label = 'Пароль'
-        self.fields['password2'].label = 'Подтверждение пароля'
-        self.fields['username'].label = 'Имя пользователя'
-        self.fields['first_name'].label = 'Имя'
-        self.fields['last_name'].label = 'Фамилия'
-        self.fields['email'].label = 'Электронная почта'
+        self.fields['password1'].label = _('Пароль')
+        self.fields['password2'].label = _('Подтверждение пароля')
+        self.fields['username'].label = _('Имя пользователя')
+        self.fields['first_name'].label = _('Имя')
+        self.fields['last_name'].label = _('Фамилия')
+        self.fields['email'].label = _('Электронная почта')
 
     # Данный метод определяет за регистрацию нового пользователя в базе данных
     def save(self, commit=True):

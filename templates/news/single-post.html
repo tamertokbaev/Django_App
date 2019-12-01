@@ -1,5 +1,6 @@
 {% extends 'news/index.html' %}
 {% load static %}
+{% load i18n %}
 {% block main %}
     {% if news %}
     <!-- ##### Blog Area Start ##### -->
@@ -26,7 +27,7 @@
                                     <div class="newspaper-post-like d-flex align-items-center justify-content-between">
                                         <!-- Tags -->
                                         <div class="newspaper-tags d-flex">
-                                            <span>Теги:</span>
+                                            <span>{% trans 'Теги:' %}</span>
                                             <ul class="d-flex">
                                                 <li><a href="#">{{ news.news_tag }}</a></li>
                                             </ul>
@@ -47,21 +48,10 @@
                                 </div>
                             </div>
                         </div>
-
-{#                        <div class="pager d-flex align-items-center justify-content-between">#}
-{#                            <div class="prev">#}
-{#                                <a href="#" class="active"><i class="fa fa-angle-left"></i> previous</a>#}
-{#                            </div>#}
-{#                            <div class="next">#}
-{#                                <a href="{% url 'news:one_by_one' next_news.id %}">Next <i class="fa fa-angle-right"></i></a>#}
-{#                            </div>#}
-{#                        </div>#}
-
-
                         <!-- Comment Area Start -->
                         <div class="comment_area clearfix">
                             {% if comment_list %}
-                                    <h5 class="title">{{ count }} комментария </h5>
+                                    <h5 class="title">{{ count }} {% trans 'комментария' %}</h5>
                                     {% for comment in comment_list %}
                                     <ol>
                                         <!-- Single Comment Area -->
@@ -83,12 +73,12 @@
                                     </ol>
                                 {% endfor %}
                                 {% else %}
-                                    Комментарии к данному посту пока что отсутствуют
+                                    {% trans 'Комментарии к данному посту пока что отсутствуют' %}
                             {% endif %}
                         </div>
 
                         <div class="post-a-comment-area section-padding-80-0">
-                            <h4>Оставьте комментарии!</h4>
+                            <h4>{% trans 'Оставьте комментарии!' %}</h4>
 
                             <!-- Reply Form -->
                             {% if user.is_authenticated %}
@@ -100,13 +90,13 @@
                                                 <textarea name="comment_text" class="form-control" id="message" cols="30" rows="10" placeholder="Текст комментария"></textarea>
                                             </div>
                                             <div class="col-12 text-center">
-                                                <button class="btn newspaper-btn mt-30 w-100" type="submit">Оставить комментарий</button>
+                                                <button class="btn newspaper-btn mt-30 w-100" type="submit">{% trans 'Оставить комментарий' %}</button>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                             {% else %}
-                                Авторизуйтесь чтобы получить возможность оставлять комментарии!
+                                {% trans 'Авторизуйтесь чтобы получить возможность оставлять комментарии!' %}
                             {% endif %}
                         </div>
                     </div>
@@ -119,7 +109,7 @@
 
                         <!-- Popular News Widget -->
                         <div class="popular-news-widget mb-50">
-                            <h3>Последние новости</h3>
+                            <h3>{% trans 'Последние новости' %}</h3>
                             {% if latest_news %}
                                 {% for news in latest_news %}
                                     <!-- Single Popular Blog -->
@@ -131,13 +121,13 @@
                                     </div>
                                 {% endfor %}
                             {% else %}
-                                Пока еще нет последних новостей.
+                                {% trans 'Пока еще нет последних новостей.' %}
                             {% endif %}
                         </div>
 
                         <!-- Latest Comments Widget -->
                         <div class="latest-comments-widget">
-                            <h3>Последние комментарии</h3>
+                            <h3>{% trans 'Последние комментарии' %}</h3>
                             {% if latest_comments %}
                                 {% for comment in latest_comments %}
                                     <!-- Single Comments -->
@@ -152,7 +142,7 @@
                                     </div>
                                 {% endfor %}
                             {% else %}
-                                Комментарии пока оставлены не были
+                                {% trans 'Комментарии пока оставлены не были' %}
                             {% endif %}
                         </div>
                     </div>

@@ -1,4 +1,5 @@
 {% extends 'news/index.html' %}
+{% load i18n %}
 {% block main %}
     <!-- ##### Blog Area Start ##### -->
     <div class="blog-area section-padding-0-80">
@@ -15,7 +16,7 @@
                                 <form method="post" action="{% url 'news:change_avatar' %}" enctype="multipart/form-data">
                                     {% csrf_token %}
                                     <br><input type="file" accept="image/*" name="avatar" required class="form-control"><br><br>
-                                    <button type="submit" class="newspaper-btn">Изменить фотографию</button>
+                                    <button type="submit" class="newspaper-btn">{% trans 'Изменить фотографию' %}</button>
                                 </form>
                             </div>
                             <div class="post-data">
@@ -25,10 +26,10 @@
                                     Фамилия: {{ user.last_name }} <br>
                                     Почта: {{ user.email }} <br>
                                     Дата рождения: {{ user.profile.birth_date }}<br><br>
-                                    <a href="{% url 'news:show_favourites' user.username %}" class="post-catagory"> Посмотреть избранные новости</a>
+                                    <a href="{% url 'news:show_favourites' user.username %}" class="post-catagory"> {% trans 'Посмотреть избранные новости' %}</a>
                                 </a>
                                 <br><br><br><br>
-                                <a href="#" class="post-catagory">Изменить профиль</a>
+                                <a href="#" class="post-catagory">{% trans 'Изменить профиль' %}</a>
                                 <form method="post" action="{% url 'news:edit_profile' %}">
                                     {% csrf_token %}
                                     <div class="row">
@@ -43,7 +44,7 @@
                                                 <input type="date" class="form-control" name="birth_date" placeholder="Дата рождения" required value="{{ user.profile.birth_date }}"><br>
                                             </div>
                                             <div class="col-12 text-center">
-                                                <button class="btn newspaper-btn mt-30 w-100" type="submit">Изменить</button>
+                                                <button class="btn newspaper-btn mt-30 w-100" type="submit">{% trans 'Изменить' %}</button>
                                             </div><br><br>
 
                                     </div>
@@ -69,7 +70,7 @@
                                 <a href="{% url 'news:profile' %}"><img src="{{ user.profile.avatar.url }}" width="150" height="150" alt=""></a>
                             </div>
                             <div class="post-data">
-                                <a href="{% url 'login' %}" class="post-catagory">Авторизуйтесь чтобы получить возможность просматривать профиль</a>
+                                <a href="{% url 'login' %}" class="post-catagory">{% trans 'Авторизуйтесь чтобы получить возможность просматривать профиль' %}</a>
                                 <a href="{% url 'news:profile' %}" class="post-title">
                                 </a>
                                 <div class="post-meta">
@@ -84,7 +85,7 @@
                     <div class="blog-sidebar-area">
                         <!-- Popular News Widget -->
                         <div class="popular-news-widget mb-50">
-                            <h3>Последние новости</h3>
+                            <h3>{% trans 'Последние новости' %}</h3>
                             {% if latest_news %}
                                 {% for news in latest_news %}
                                     <!-- Single Popular Blog -->
@@ -96,7 +97,7 @@
                                     </div>
                                 {% endfor %}
                             {% else %}
-                                Пока еще нет последних новостей.
+                                {% trans 'Пока еще нет последних новостей.' %}
                             {% endif %}
                         </div>
                     </div>

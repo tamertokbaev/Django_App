@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-01 15:33+0600\n"
+"POT-Creation-Date: 2019-12-01 19:41+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,28 +21,45 @@ msgstr ""
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: .\Django_App\applications\news\forms.py:10
-msgid "E-Mail address"
-msgstr "Электронный адрес"
+msgid "Электронный адрес"
+msgstr ""
 
 #: .\Django_App\applications\news\forms.py:11
-msgid "First Name"
-msgstr "Имя"
+#: .\Django_App\applications\news\forms.py:37
+msgid "Имя"
+msgstr ""
 
 #: .\Django_App\applications\news\forms.py:12
-msgid "Last Name"
-msgstr "Фамилия"
+#: .\Django_App\applications\news\forms.py:38
+msgid "Фамилия"
+msgstr ""
 
 #: .\Django_App\applications\news\forms.py:13
-msgid "Username"
-msgstr "Имя пользователя"
+#: .\Django_App\applications\news\forms.py:36
+msgid "Имя пользователя"
+msgstr ""
+
+#: .\Django_App\applications\news\forms.py:14
+#: .\Django_App\applications\news\forms.py:34
+msgid "Пароль"
+msgstr ""
 
 #: .\Django_App\applications\news\forms.py:15
 msgid "Password"
 msgstr "Пароль"
 
+#: .\Django_App\applications\news\forms.py:16
+#: .\Django_App\applications\news\forms.py:35
+msgid "Подтверждение пароля"
+msgstr ""
+
 #: .\Django_App\applications\news\forms.py:17
 msgid "Repeat password"
 msgstr "Повторите пароль"
+
+#: .\Django_App\applications\news\forms.py:39
+msgid "Электронная почта"
+msgstr ""
 
 #: .\Django_App\applications\news\models.py:15
 msgid "Birthday Date"
@@ -93,6 +110,209 @@ msgstr "Текст комментария"
 msgid "Date of publication of the comment"
 msgstr "Дата публикации комментария"
 
+#: .\templates\kpl\calendar.html:13
+msgid "Игровой календарь"
+msgstr ""
+
+#: .\templates\kpl\calendar.html:20
+msgid "- тур"
+msgstr ""
+
+#: .\templates\kpl\calendar.html:27
+msgid "Пока туров сыграно не было"
+msgstr ""
+
+#: .\templates\kpl\calendar.html:43 .\templates\kpl\coefficient_table.html:65
+#: .\templates\kpl\coefficient_table_FIFA.html:47
+#: .\templates\kpl\eu_group.html:62 .\templates\kpl\euro_main_table.html:61
+#: .\templates\kpl\tournament_table.html:58
+#: .\templates\news\catagories-post.html:37 .\templates\news\confirm.html:32
+#: .\templates\news\index.html:261 .\templates\news\profile.html:88
+#: .\templates\news\search.html:37 .\templates\news\section_news.html:37
+#: .\templates\news\section_news.html:104 .\templates\news\show_favs.html:38
+#: .\templates\news\single-post.html:112 .\templates\register.html:37
+#: .\templates\registration\login.html:39
+msgid "Последние новости"
+msgstr ""
+
+#: .\templates\kpl\calendar.html:55 .\templates\kpl\coefficient_table.html:77
+#: .\templates\kpl\coefficient_table_FIFA.html:59
+#: .\templates\kpl\eu_group.html:74 .\templates\kpl\euro_main_table.html:73
+#: .\templates\kpl\tournament_table.html:70 .\templates\news\profile.html:100
+#: .\templates\news\section_news.html:49 .\templates\news\section_news.html:116
+#: .\templates\news\show_favs.html:50 .\templates\news\single-post.html:124
+#: .\templates\register.html:49 .\templates\registration\login.html:51
+msgid "Пока еще нет последних новостей."
+msgstr ""
+
+#: .\templates\kpl\coefficient_table.html:15
+msgid "Таблица коэффицентов УЕФА"
+msgstr ""
+
+#: .\templates\kpl\coefficient_table.html:18
+msgid "1-4 места - 4 клуба в Лиге чемпионов и 3 клуба в Лиге Европы"
+msgstr ""
+
+#: .\templates\kpl\coefficient_table.html:19
+msgid "5-6 места - 3 клуба в Лиге чемпионов и 3 клуба в Лиге Европы"
+msgstr ""
+
+#: .\templates\kpl\coefficient_table.html:20
+msgid "7-15 места - 2 клуба в Лиге чемпионов и 3 клуба в Лиге Европы"
+msgstr ""
+
+#: .\templates\kpl\coefficient_table.html:21
+msgid "16-55 места - 1 клуб в Лиге чемпионов и 3 клуба в Лиге Европы"
+msgstr ""
+
+#: .\templates\kpl\coefficient_table.html:29
+#: .\templates\kpl\coefficient_table_FIFA.html:21
+msgid "Страна"
+msgstr ""
+
+#: .\templates\kpl\coefficient_table.html:35 .\templates\news\index.html:135
+msgid "Рейтинг"
+msgstr ""
+
+#: .\templates\kpl\coefficient_table.html:36
+msgid "Команды"
+msgstr ""
+
+#: .\templates\kpl\coefficient_table.html:53
+#: .\templates\kpl\coefficient_table_FIFA.html:35
+#: .\templates\kpl\tournament_table.html:43
+msgid "Турнирная таблица отсутствует."
+msgstr ""
+
+#: .\templates\kpl\coefficient_table.html:55
+msgid "Последнее обновление: 27 ноября"
+msgstr ""
+
+#: .\templates\kpl\coefficient_table_FIFA.html:15
+msgid "Рейтинг сборных FIFA"
+msgstr ""
+
+#: .\templates\kpl\coefficient_table_FIFA.html:22
+msgid "24 октября"
+msgstr ""
+
+#: .\templates\kpl\coefficient_table_FIFA.html:23
+msgid "19 сентября"
+msgstr ""
+
+#: .\templates\kpl\coefficient_table_FIFA.html:37
+msgid "Последнее обновление: 24 октября"
+msgstr ""
+
+#: .\templates\kpl\eu_group.html:14 .\templates\kpl\euro_main_table.html:17
+msgid "Группа"
+msgstr ""
+
+#: .\templates\kpl\eu_group.html:18 .\templates\kpl\euro_main_table.html:20
+msgid "Название"
+msgstr ""
+
+#: .\templates\kpl\eu_group.html:19 .\templates\kpl\euro_main_table.html:21
+#: .\templates\kpl\tournament_table.html:21
+msgid "Количество игр"
+msgstr ""
+
+#: .\templates\kpl\eu_group.html:20 .\templates\kpl\euro_main_table.html:22
+#: .\templates\kpl\tournament_table.html:22
+msgid "Победы"
+msgstr ""
+
+#: .\templates\kpl\eu_group.html:21 .\templates\kpl\euro_main_table.html:23
+#: .\templates\kpl\tournament_table.html:23
+msgid "Ничьи"
+msgstr ""
+
+#: .\templates\kpl\eu_group.html:22 .\templates\kpl\euro_main_table.html:24
+#: .\templates\kpl\tournament_table.html:24
+msgid "Поражения"
+msgstr ""
+
+#: .\templates\kpl\eu_group.html:23 .\templates\kpl\eu_group.html:24
+#: .\templates\kpl\euro_main_table.html:25
+msgid "Разница"
+msgstr ""
+
+#: .\templates\kpl\eu_group.html:41
+msgid "Запрашиваемая группа не найдена!"
+msgstr ""
+
+#: .\templates\kpl\eu_group.html:45
+msgid "Сыгранные матчи в Группе"
+msgstr ""
+
+#: .\templates\kpl\eu_group.html:53
+msgid "Пока матчей между командами сыграно не было"
+msgstr ""
+
+#: .\templates\kpl\euro_main_table.html:14 .\templates\news\index.html:113
+#: .\templates\news\index.html:126 .\templates\news\index.html:132
+msgid "Турнирная таблица"
+msgstr ""
+
+#: .\templates\kpl\euro_main_table.html:26
+#: .\templates\kpl\tournament_table.html:27
+msgid "Очки"
+msgstr ""
+
+#: .\templates\kpl\euro_main_table.html:49
+msgid "В выбранном вами турнире отсутствуют какие-либо данные!"
+msgstr ""
+
+#: .\templates\kpl\tournament_table.html:13
+msgid "Турнирная таблица Казахстанской Премьер-Лиги"
+msgstr ""
+
+#: .\templates\kpl\tournament_table.html:20
+msgid "Название клуба"
+msgstr ""
+
+#: .\templates\kpl\tournament_table.html:25
+msgid "ГЗ"
+msgstr ""
+
+#: .\templates\kpl\tournament_table.html:26
+msgid "ГП"
+msgstr ""
+
+#: .\templates\news\catagories-post.html:49 .\templates\news\confirm.html:44
+#: .\templates\news\search.html:49
+msgid "Пока еще нет последних новостей"
+msgstr ""
+
+#: .\templates\news\catagories-post.html:56 .\templates\news\index.html:331
+#: .\templates\news\search.html:56 .\templates\news\section_news.html:56
+#: .\templates\news\section_news.html:123 .\templates\news\single-post.html:130
+msgid "Последние комментарии"
+msgstr ""
+
+#: .\templates\news\catagories-post.html:71 .\templates\news\index.html:346
+#: .\templates\news\search.html:71 .\templates\news\section_news.html:71
+#: .\templates\news\section_news.html:138 .\templates\news\show_favs.html:72
+#: .\templates\news\single-post.html:145
+msgid "Комментарии пока оставлены не были"
+msgstr ""
+
+#: .\templates\news\catagories-post.html:80
+msgid "Пока новостей нет"
+msgstr ""
+
+#: .\templates\news\confirm.html:13
+msgid "Мы выслали 4-значный код вам на почту!"
+msgstr ""
+
+#: .\templates\news\confirm.html:14
+msgid "Прошу введите его ниже!"
+msgstr ""
+
+#: .\templates\news\confirm.html:20
+msgid "Отправить"
+msgstr ""
+
 #: .\templates\news\index.html:13
 msgid "Футбольные новости"
 msgstr ""
@@ -109,7 +329,7 @@ msgstr ""
 msgid "Зарегистрироваться"
 msgstr ""
 
-#: .\templates\news\index.html:65
+#: .\templates\news\index.html:65 .\templates\news\profile.html:47
 msgid "Изменить"
 msgstr ""
 
@@ -128,11 +348,6 @@ msgstr ""
 #: .\templates\news\index.html:112 .\templates\news\index.html:120
 #: .\templates\news\index.html:125 .\templates\news\index.html:131
 msgid "Новости"
-msgstr ""
-
-#: .\templates\news\index.html:113 .\templates\news\index.html:126
-#: .\templates\news\index.html:132
-msgid "Турнирная таблица"
 msgstr ""
 
 #: .\templates\news\index.html:114
@@ -155,10 +370,6 @@ msgstr ""
 msgid "Лига Европы"
 msgstr ""
 
-#: .\templates\news\index.html:135
-msgid "Рейтинг"
-msgstr ""
-
 #: .\templates\news\index.html:137
 msgid "Рейтинг FIFA"
 msgstr ""
@@ -171,16 +382,60 @@ msgstr ""
 msgid "Архив"
 msgstr ""
 
-#: .\templates\news\index.html:261
-msgid "Последние новости"
+#: .\templates\news\profile.html:19
+msgid "Изменить фотографию"
 msgstr ""
 
-#: .\templates\news\index.html:331
-msgid "Последние комментарии"
+#: .\templates\news\profile.html:29
+msgid "Посмотреть избранные новости"
 msgstr ""
 
-#: .\templates\news\index.html:346
-msgid "Комментарии пока оставлены не были"
+#: .\templates\news\profile.html:32
+msgid "Изменить профиль"
+msgstr ""
+
+#: .\templates\news\profile.html:73
+msgid "Авторизуйтесь чтобы получить возможность просматривать профиль"
+msgstr ""
+
+#: .\templates\news\search.html:83
+msgid "По вашему результату ничего не было найдено!"
+msgstr ""
+
+#: .\templates\news\section_news.html:89
+msgid "Пока еще новостей на эту тему нет!"
+msgstr ""
+
+#: .\templates\news\single-post.html:30
+msgid "Теги:"
+msgstr ""
+
+#: .\templates\news\single-post.html:54
+msgid "комментария"
+msgstr ""
+
+#: .\templates\news\single-post.html:76
+msgid "Комментарии к данному посту пока что отсутствуют"
+msgstr ""
+
+#: .\templates\news\single-post.html:81
+msgid "Оставьте комментарии!"
+msgstr ""
+
+#: .\templates\news\single-post.html:93
+msgid "Оставить комментарий"
+msgstr ""
+
+#: .\templates\news\single-post.html:99
+msgid "Авторизуйтесь чтобы получить возможность оставлять комментарии!"
+msgstr ""
+
+#: .\templates\register.html:13
+msgid "Регистрация"
+msgstr ""
+
+#: .\templates\registration\login.html:13
+msgid "Авторизация"
 msgstr ""
 
 #: .\venv\Lib\site-packages\ckeditor_uploader\forms.py:8
@@ -1390,6 +1645,18 @@ msgstr ""
 #: .\venv\Lib\site-packages\httplib2\__init__.py:1658
 msgid "Redirected but the response is missing a Location: header."
 msgstr ""
+
+#~ msgid "E-Mail address"
+#~ msgstr "Электронный адрес"
+
+#~ msgid "First Name"
+#~ msgstr "Имя"
+
+#~ msgid "Last Name"
+#~ msgstr "Фамилия"
+
+#~ msgid "Username"
+#~ msgstr "Имя пользователя"
 
 #, fuzzy
 #~| msgid "Search files"

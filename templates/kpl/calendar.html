@@ -1,4 +1,5 @@
 {% extends 'news/index.html' %}
+{% load i18n %}
     {% block main %}
     <!-- ##### Blog Area Start ##### -->
     <div class="blog-area section-padding-0-80">
@@ -9,21 +10,21 @@
                         <!-- Single Featured Post -->
                         <div class="single-blog-post featured-post mb-30">
                             <div class="post-data">
-                                <a href="#" class="post-catagory">Игровой календарь</a>
+                                <a href="#" class="post-catagory">{% trans 'Игровой календарь' %}</a>
                                 <form method="post" action="">
                                     {% csrf_token %}
                                     <div class="row">
                                         <div class="col-md-8">
                                             {% if tours %}
                                                 {% for i in tours %}
-                                                    {{ i.0.tour_id }} - тур<br><br>
+                                                    {{ i.0.tour_id }} {% trans '- тур' %}<br><br>
                                                     {% for j in i %}
                                                         {{ j.home_team }} <strong>{{ j.home_goals }}:{{ j.away_goals }} </strong>{{ j.away_team }}<br>
                                                     {% endfor %}
                                                     <br>
                                                 {% endfor %}
                                             {% else %}
-                                                Пока туров сыграно не было
+                                                {% trans 'Пока туров сыграно не было' %}
                                             {% endif %}
                                         </div>
                                     </div>
@@ -39,7 +40,7 @@
                     <div class="blog-sidebar-area">
                         <!-- Popular News Widget -->
                         <div class="popular-news-widget mb-50">
-                            <h3>Последние новости</h3>
+                            <h3>{% trans 'Последние новости' %}</h3>
                             {% if latest_news %}
                                 {% for news in latest_news %}
                                     <!-- Single Popular Blog -->
@@ -51,7 +52,7 @@
                                     </div>
                                 {% endfor %}
                             {% else %}
-                                Пока еще нет последних новостей.
+                                {% trans 'Пока еще нет последних новостей.' %}
                             {% endif %}
                         </div>
                     </div>
