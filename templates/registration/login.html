@@ -18,9 +18,10 @@
                                             <input type="text" class="form-control" placeholder="Логин" id="{{ form.username.id_for_label }}" name="{{ form.username.html_name }}"><br>
                                             <input type="password" class="form-control" placeholder="Пароль" id="{{form.password.id_for_label}}" name="{{form.password.html_name}}">
                                             {{ form.errors }}
+                                            {{ help_msg }}
                                         </div>
                                         <div class="col-md-12 text-center">
-                                            <input type="submit" value="Войти" class="btn newspaper-btn mt-30 w-100">
+                                            <input type="submit" value="{% trans 'Войти' %}" class="btn newspaper-btn mt-30 w-100">
                                             <input type="hidden" name="next" value="{{ next }}">
                                         </div>
                                     </div>

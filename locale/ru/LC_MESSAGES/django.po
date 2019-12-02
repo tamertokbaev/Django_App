@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-01 19:41+0600\n"
+"POT-Creation-Date: 2019-12-02 19:57+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,12 +25,12 @@ msgid "Электронный адрес"
 msgstr ""
 
 #: .\Django_App\applications\news\forms.py:11
-#: .\Django_App\applications\news\forms.py:37
+#: .\Django_App\applications\news\forms.py:37 .\templates\news\profile.html:37
 msgid "Имя"
 msgstr ""
 
 #: .\Django_App\applications\news\forms.py:12
-#: .\Django_App\applications\news\forms.py:38
+#: .\Django_App\applications\news\forms.py:38 .\templates\news\profile.html:40
 msgid "Фамилия"
 msgstr ""
 
@@ -110,6 +110,58 @@ msgstr "Текст комментария"
 msgid "Date of publication of the comment"
 msgstr "Дата публикации комментария"
 
+#: .\Django_App\applications\news\views.py:36
+msgid "Удалить из избранного"
+msgstr ""
+
+#: .\Django_App\applications\news\views.py:38
+msgid "Добавить в избранное"
+msgstr ""
+
+#: .\Django_App\applications\news\views.py:54
+msgid "Статья не найдена!"
+msgstr ""
+
+#: .\Django_App\applications\news\views.py:129
+msgid "Секретный код был введен неверно! Регистрация отменена!"
+msgstr ""
+
+#: .\Django_App\applications\news\views.py:154
+msgid "Ваш профиль был успешно изменен"
+msgstr ""
+
+#: .\Django_App\applications\news\views.py:158
+msgid "Упс... Что-то пошло не так..."
+msgstr ""
+
+#: .\Django_App\applications\news\views.py:170
+msgid "Возможно ваша статья была удалена или навсегда перемещена!"
+msgstr ""
+
+#: .\Django_App\applications\news\views.py:185
+msgid "Вы пока ничего не добавили в избранное!"
+msgstr ""
+
+#: .\Django_App\applications\news\views.py:189
+msgid "Войдите в систему чтобы получить доступ к избранным новостям!"
+msgstr ""
+
+#: .\Django_App\applications\news\views.py:200
+msgid "Возникла ошибка! Возможно этот пользователь был удален!"
+msgstr ""
+
+#: .\Django_App\applications\news\views.py:221
+msgid "Список новостей пуст"
+msgstr ""
+
+#: .\Django_App\applications\news\views.py:241
+msgid "Войдите на сайт чтобы получить возможность ставить лайк на пост"
+msgstr ""
+
+#: .\Django_App\applications\news\views.py:243
+msgid "Произошла ошибка в ходе выполнения действия!"
+msgstr ""
+
 #: .\templates\kpl\calendar.html:13
 msgid "Игровой календарь"
 msgstr ""
@@ -130,8 +182,8 @@ msgstr ""
 #: .\templates\news\index.html:261 .\templates\news\profile.html:88
 #: .\templates\news\search.html:37 .\templates\news\section_news.html:37
 #: .\templates\news\section_news.html:104 .\templates\news\show_favs.html:38
-#: .\templates\news\single-post.html:112 .\templates\register.html:37
-#: .\templates\registration\login.html:39
+#: .\templates\news\single-post.html:112 .\templates\register.html:36
+#: .\templates\registration\login.html:40
 msgid "Последние новости"
 msgstr ""
 
@@ -141,7 +193,7 @@ msgstr ""
 #: .\templates\kpl\tournament_table.html:70 .\templates\news\profile.html:100
 #: .\templates\news\section_news.html:49 .\templates\news\section_news.html:116
 #: .\templates\news\show_favs.html:50 .\templates\news\single-post.html:124
-#: .\templates\register.html:49 .\templates\registration\login.html:51
+#: .\templates\register.html:48 .\templates\registration\login.html:52
 msgid "Пока еще нет последних новостей."
 msgstr ""
 
@@ -286,7 +338,8 @@ msgstr ""
 
 #: .\templates\news\catagories-post.html:56 .\templates\news\index.html:331
 #: .\templates\news\search.html:56 .\templates\news\section_news.html:56
-#: .\templates\news\section_news.html:123 .\templates\news\single-post.html:130
+#: .\templates\news\section_news.html:123 .\templates\news\show_favs.html:57
+#: .\templates\news\single-post.html:130
 msgid "Последние комментарии"
 msgstr ""
 
@@ -321,7 +374,7 @@ msgstr ""
 msgid "Выйти"
 msgstr ""
 
-#: .\templates\news\index.html:48
+#: .\templates\news\index.html:48 .\templates\registration\login.html:24
 msgid "Войти"
 msgstr ""
 
@@ -386,12 +439,32 @@ msgstr ""
 msgid "Изменить фотографию"
 msgstr ""
 
+#: .\templates\news\profile.html:25
+msgid "Имя: "
+msgstr ""
+
+#: .\templates\news\profile.html:26
+msgid "Фамилия:"
+msgstr ""
+
+#: .\templates\news\profile.html:27
+msgid "Почта:"
+msgstr ""
+
+#: .\templates\news\profile.html:28
+msgid "Дата рождения:"
+msgstr ""
+
 #: .\templates\news\profile.html:29
 msgid "Посмотреть избранные новости"
 msgstr ""
 
 #: .\templates\news\profile.html:32
 msgid "Изменить профиль"
+msgstr ""
+
+#: .\templates\news\profile.html:44
+msgid "Дата рождения"
 msgstr ""
 
 #: .\templates\news\profile.html:73
@@ -432,6 +505,10 @@ msgstr ""
 
 #: .\templates\register.html:13
 msgid "Регистрация"
+msgstr ""
+
+#: .\templates\register.html:21
+msgid "Зарегистрировать"
 msgstr ""
 
 #: .\templates\registration\login.html:13

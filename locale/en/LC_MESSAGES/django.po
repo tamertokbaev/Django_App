@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-01 19:41+0600\n"
+"POT-Creation-Date: 2019-12-02 19:57+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,12 +23,12 @@ msgid "Электронный адрес"
 msgstr "E-Mail address"
 
 #: .\Django_App\applications\news\forms.py:11
-#: .\Django_App\applications\news\forms.py:37
+#: .\Django_App\applications\news\forms.py:37 .\templates\news\profile.html:37
 msgid "Имя"
 msgstr "First Name"
 
 #: .\Django_App\applications\news\forms.py:12
-#: .\Django_App\applications\news\forms.py:38
+#: .\Django_App\applications\news\forms.py:38 .\templates\news\profile.html:40
 msgid "Фамилия"
 msgstr "Last name"
 
@@ -48,8 +48,6 @@ msgstr "Password"
 
 #: .\Django_App\applications\news\forms.py:16
 #: .\Django_App\applications\news\forms.py:35
-#, fuzzy
-#| msgid "Футбольные новости"
 msgid "Подтверждение пароля"
 msgstr "Confirming password"
 
@@ -110,6 +108,58 @@ msgstr "Text of the comment"
 msgid "Date of publication of the comment"
 msgstr "Date of publication of the comment"
 
+#: .\Django_App\applications\news\views.py:36
+msgid "Удалить из избранного"
+msgstr "Remove from favourites"
+
+#: .\Django_App\applications\news\views.py:38
+msgid "Добавить в избранное"
+msgstr "Add to favourites"
+
+#: .\Django_App\applications\news\views.py:54
+msgid "Статья не найдена!"
+msgstr "Requested article not found"
+
+#: .\Django_App\applications\news\views.py:129
+msgid "Секретный код был введен неверно! Регистрация отменена!"
+msgstr "The secret code is incorrect! Registration canceled!"
+
+#: .\Django_App\applications\news\views.py:154
+msgid "Ваш профиль был успешно изменен"
+msgstr "Your profile has been successfully changed!"
+
+#: .\Django_App\applications\news\views.py:158
+msgid "Упс... Что-то пошло не так..."
+msgstr "Oups... Something went wrong..."
+
+#: .\Django_App\applications\news\views.py:170
+msgid "Возможно ваша статья была удалена или навсегда перемещена!"
+msgstr "Maybe your article has been deleted or moved!"
+
+#: .\Django_App\applications\news\views.py:185
+msgid "Вы пока ничего не добавили в избранное!"
+msgstr "You have not added anything to your favorites yet!"
+
+#: .\Django_App\applications\news\views.py:189
+msgid "Войдите в систему чтобы получить доступ к избранным новостям!"
+msgstr "Log in to view favourite news"
+
+#: .\Django_App\applications\news\views.py:200
+msgid "Возникла ошибка! Возможно этот пользователь был удален!"
+msgstr "Error occurred! Maybe this user has been deleted!"
+
+#: .\Django_App\applications\news\views.py:221
+msgid "Список новостей пуст"
+msgstr "News list is empty"
+
+#: .\Django_App\applications\news\views.py:241
+msgid "Войдите на сайт чтобы получить возможность ставить лайк на пост"
+msgstr "Log in to put like on article!"
+
+#: .\Django_App\applications\news\views.py:243
+msgid "Произошла ошибка в ходе выполнения действия!"
+msgstr "Error occurred while processing!"
+
 #: .\templates\kpl\calendar.html:13
 msgid "Игровой календарь"
 msgstr "Game calendar"
@@ -130,10 +180,8 @@ msgstr "Tours are not played yet"
 #: .\templates\news\index.html:261 .\templates\news\profile.html:88
 #: .\templates\news\search.html:37 .\templates\news\section_news.html:37
 #: .\templates\news\section_news.html:104 .\templates\news\show_favs.html:38
-#: .\templates\news\single-post.html:112 .\templates\register.html:37
-#: .\templates\registration\login.html:39
-#, fuzzy
-#| msgid "Футбольные новости"
+#: .\templates\news\single-post.html:112 .\templates\register.html:36
+#: .\templates\registration\login.html:40
 msgid "Последние новости"
 msgstr "Latest news"
 
@@ -143,9 +191,7 @@ msgstr "Latest news"
 #: .\templates\kpl\tournament_table.html:70 .\templates\news\profile.html:100
 #: .\templates\news\section_news.html:49 .\templates\news\section_news.html:116
 #: .\templates\news\show_favs.html:50 .\templates\news\single-post.html:124
-#: .\templates\register.html:49 .\templates\registration\login.html:51
-#, fuzzy
-#| msgid "Футбольные новости"
+#: .\templates\register.html:48 .\templates\registration\login.html:52
 msgid "Пока еще нет последних новостей."
 msgstr "There is no recent news yet."
 
@@ -166,8 +212,6 @@ msgid "7-15 места - 2 клуба в Лиге чемпионов и 3 клу
 msgstr "5-6 places - 2 clubs in Champions League and 3 clubs in Europe League"
 
 #: .\templates\kpl\coefficient_table.html:21
-#, fuzzy
-#| msgid "1-4 места - 4 клуба в Лиге чемпионов и 3 клуба в Лиге Европы"
 msgid "16-55 места - 1 клуб в Лиге чемпионов и 3 клуба в Лиге Европы"
 msgstr ""
 "16-55 places - 4 clubs in Champions League and 3 clubs in Europe League"
@@ -188,20 +232,14 @@ msgstr "Clubs"
 #: .\templates\kpl\coefficient_table.html:53
 #: .\templates\kpl\coefficient_table_FIFA.html:35
 #: .\templates\kpl\tournament_table.html:43
-#, fuzzy
-#| msgid "Турнирная таблица"
 msgid "Турнирная таблица отсутствует."
 msgstr "Tournament table are not available"
 
 #: .\templates\kpl\coefficient_table.html:55
-#, fuzzy
-#| msgid "Последние комментарии"
 msgid "Последнее обновление: 27 ноября"
 msgstr "Latest update: 27 November"
 
 #: .\templates\kpl\coefficient_table_FIFA.html:15
-#, fuzzy
-#| msgid "Рейтинг FIFA"
 msgid "Рейтинг сборных FIFA"
 msgstr "Rating of countries FIFA"
 
@@ -214,8 +252,6 @@ msgid "19 сентября"
 msgstr "19 september"
 
 #: .\templates\kpl\coefficient_table_FIFA.html:37
-#, fuzzy
-#| msgid "Последние комментарии"
 msgid "Последнее обновление: 24 октября"
 msgstr "Latest update: 24 october"
 
@@ -229,8 +265,6 @@ msgstr "Name"
 
 #: .\templates\kpl\eu_group.html:19 .\templates\kpl\euro_main_table.html:21
 #: .\templates\kpl\tournament_table.html:21
-#, fuzzy
-#| msgid "Календарь игр"
 msgid "Количество игр"
 msgstr "Games"
 
@@ -281,8 +315,6 @@ msgid "В выбранном вами турнире отсутствуют ка
 msgstr "In selected tournament there is no data!"
 
 #: .\templates\kpl\tournament_table.html:13
-#, fuzzy
-#| msgid "Казахстанская премьер лига"
 msgid "Турнирная таблица Казахстанской Премьер-Лиги"
 msgstr "Tournament table of Kazakhstan Premier League"
 
@@ -300,14 +332,13 @@ msgstr "GS"
 
 #: .\templates\news\catagories-post.html:49 .\templates\news\confirm.html:44
 #: .\templates\news\search.html:49
-#, fuzzy
-#| msgid "Футбольные новости"
 msgid "Пока еще нет последних новостей"
 msgstr "There is no latest news yet"
 
 #: .\templates\news\catagories-post.html:56 .\templates\news\index.html:331
 #: .\templates\news\search.html:56 .\templates\news\section_news.html:56
-#: .\templates\news\section_news.html:123 .\templates\news\single-post.html:130
+#: .\templates\news\section_news.html:123 .\templates\news\show_favs.html:57
+#: .\templates\news\single-post.html:130
 msgid "Последние комментарии"
 msgstr "Latest comments"
 
@@ -319,8 +350,6 @@ msgid "Комментарии пока оставлены не были"
 msgstr "Comments have not left yet"
 
 #: .\templates\news\catagories-post.html:80
-#, fuzzy
-#| msgid "Футбольные новости"
 msgid "Пока новостей нет"
 msgstr "There is no latest news yet"
 
@@ -344,7 +373,7 @@ msgstr "Football News"
 msgid "Выйти"
 msgstr "Logout"
 
-#: .\templates\news\index.html:48
+#: .\templates\news\index.html:48 .\templates\registration\login.html:24
 msgid "Войти"
 msgstr "Log in"
 
@@ -354,7 +383,7 @@ msgstr "Register"
 
 #: .\templates\news\index.html:65 .\templates\news\profile.html:47
 msgid "Изменить"
-msgstr "Change to"
+msgstr "Change"
 
 #: .\templates\news\index.html:70
 msgid "Поиск..."
@@ -406,22 +435,36 @@ msgid "Архив"
 msgstr "Archive"
 
 #: .\templates\news\profile.html:19
-#, fuzzy
-#| msgid "Изменить"
 msgid "Изменить фотографию"
-msgstr "Change to"
+msgstr "Change photo"
+
+#: .\templates\news\profile.html:25
+msgid "Имя: "
+msgstr "First Name:"
+
+#: .\templates\news\profile.html:26
+msgid "Фамилия:"
+msgstr "Last name:"
+
+#: .\templates\news\profile.html:27
+msgid "Почта:"
+msgstr "E-Mail address:"
+
+#: .\templates\news\profile.html:28
+msgid "Дата рождения:"
+msgstr "Birthday date:"
 
 #: .\templates\news\profile.html:29
-#, fuzzy
-#| msgid "Футбольные новости"
 msgid "Посмотреть избранные новости"
-msgstr "Football News"
+msgstr "View favourite news"
 
 #: .\templates\news\profile.html:32
-#, fuzzy
-#| msgid "Изменить"
 msgid "Изменить профиль"
-msgstr "Change to"
+msgstr "Change profile"
+
+#: .\templates\news\profile.html:44
+msgid "Дата рождения"
+msgstr "Birthday date"
 
 #: .\templates\news\profile.html:73
 msgid "Авторизуйтесь чтобы получить возможность просматривать профиль"
@@ -440,8 +483,6 @@ msgid "Теги:"
 msgstr "Tags:"
 
 #: .\templates\news\single-post.html:54
-#, fuzzy
-#| msgid "Последние комментарии"
 msgid "комментария"
 msgstr "comments"
 
@@ -450,14 +491,10 @@ msgid "Комментарии к данному посту пока что от�
 msgstr "There are no comments for this post yet."
 
 #: .\templates\news\single-post.html:81
-#, fuzzy
-#| msgid "Последние комментарии"
 msgid "Оставьте комментарии!"
 msgstr "Leave comment"
 
 #: .\templates\news\single-post.html:93
-#, fuzzy
-#| msgid "Последние комментарии"
 msgid "Оставить комментарий"
 msgstr "Leave comments"
 
@@ -466,9 +503,11 @@ msgid "Авторизуйтесь чтобы получить возможнос
 msgstr "Log in to leave comment"
 
 #: .\templates\register.html:13
-#, fuzzy
-#| msgid "Зарегистрироваться"
 msgid "Регистрация"
+msgstr "Register"
+
+#: .\templates\register.html:21
+msgid "Зарегистрировать"
 msgstr "Register"
 
 #: .\templates\registration\login.html:13

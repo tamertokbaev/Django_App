@@ -22,10 +22,10 @@
                             <div class="post-data">
                                 <a href="{% url 'news:profile' user.username %}" class="post-catagory">{{ user.username }}</a>
                                 <a href="{% url 'news:profile' user.username %}" class="post-title">
-                                    Имя: {{ user.first_name }} <br>
-                                    Фамилия: {{ user.last_name }} <br>
-                                    Почта: {{ user.email }} <br>
-                                    Дата рождения: {{ user.profile.birth_date }}<br><br>
+                                    {% trans 'Имя: ' %}{{ user.first_name }} <br>
+                                    {% trans 'Фамилия:' %} {{ user.last_name }} <br>
+                                    {% trans 'Почта:' %} {{ user.email }} <br>
+                                    {% trans 'Дата рождения:' %} {{ user.profile.birth_date }}<br><br>
                                     <a href="{% url 'news:show_favourites' user.username %}" class="post-catagory"> {% trans 'Посмотреть избранные новости' %}</a>
                                 </a>
                                 <br><br><br><br>
@@ -34,14 +34,14 @@
                                     {% csrf_token %}
                                     <div class="row">
                                             <div class="col-12 col-lg-6">
-                                                <input type="text" class="form-control" name="first_name" placeholder="Имя" value="{{ user.first_name }}" required><br>
+                                                <input type="text" class="form-control" name="first_name" placeholder="{% trans 'Имя' %}" value="{{ user.first_name }}" required><br>
                                             </div>
                                             <div class="col-12 col-lg-6">
-                                                <input type="text" class="form-control" name="last_name" placeholder="Фамилия" required value="{{ user.last_name }}">
+                                                <input type="text" class="form-control" name="last_name" placeholder="{% trans 'Фамилия' %}" required value="{{ user.last_name }}">
                                             </div>
                                             <div class="col-12">
                                                 Дата рождения:<br><br>
-                                                <input type="date" class="form-control" name="birth_date" placeholder="Дата рождения" required value="{{ user.profile.birth_date }}"><br>
+                                                <input type="date" class="form-control" name="birth_date" placeholder="{% trans 'Дата рождения' %}" required value="{{ user.profile.birth_date }}"><br>
                                             </div>
                                             <div class="col-12 text-center">
                                                 <button class="btn newspaper-btn mt-30 w-100" type="submit">{% trans 'Изменить' %}</button>

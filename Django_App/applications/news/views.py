@@ -5,6 +5,7 @@ from django.http import Http404, HttpResponseRedirect
 from django.template.context_processors import csrf
 from django.urls import reverse
 from django.core.mail import send_mail
+from django.utils.translation import ugettext_lazy as _
 
 from random import randint
 
@@ -32,9 +33,9 @@ def one_by_one(request, news_id):
         a.save()
         if auth.get_user(request).is_authenticated:
             if UserFavourite.objects.filter(fav_news=a, user=auth.get_user(request)).exists():
-                context.update({'favourite': "Удалить из избранного"})
+                context.update({'favourite': _("Удалить из избранного")})
             else:
-                context.update({'favourite': "Добавить в избранное"})
+                context.update({'favourite': _("Добавить в избранное")})
     except:
         raise Http404("Статья не найдена!")
     latest_news = News.objects.order_by('-publication_date')[:4]
@@ -50,7 +51,7 @@ def leave_comment(request, news_id):
     try:
         a = News.objects.get(id=news_id)
     except:
-        raise Http404("Статья не найдена!")
+        raise Http404(_("Статья не найдена!"))
     a.comment_set.create(comment_author=auth.get_user(request), comment_text=request.POST['comment_text'])
     return HttpResponseRedirect(reverse('news:one_by_one', args=(news_id,)))
 
@@ -125,7 +126,7 @@ def confirming_register(request):
             return HttpResponseRedirect('/accounts/login')
         else:
             return render(request, 'news/confirm.html',
-                          {'result': 'Секретный код был введен неверно! Регистрация отменена!'})
+                          {'result': _('Секретный код был введен неверно! Регистрация отменена!')})
     return render(request, 'news/confirm.html', {})
 
 
@@ -150,11 +151,11 @@ def edit_profile(request):
             latest_news = News.objects.order_by('-publication_date')[:4]
             latest_comments = Comment.objects.order_by('-comment_date')[:4]
             return render(request, 'news/profile.html', {'user': user,
-                                                         'result': 'Ваш профиль был успешно изменен',
+                                                         'result': _('Ваш профиль был успешно изменен'),
                                                          'latest_news': latest_news,
                                                          'latest_comments': latest_comments})
     except:
-        raise Http404('Упс... Что-то пошло не так...')
+        raise Http404(_('Упс... Что-то пошло не так...'))
     return render(request, 'news/profile.html', {})
 
 
@@ -166,7 +167,7 @@ def add_to_favourites(request, news_id):
             else:
                 UserFavourite.objects.create(user=auth.get_user(request), fav_news=News.objects.get(id=news_id))
     except:
-        raise Http404('Возможно ваша статья была удалена или навсегда перемещена!')
+        raise Http404(_('Возможно ваша статья была удалена или навсегда перемещена!'))
     return HttpResponseRedirect(reverse('news:one_by_one', args=(news_id,)))
 
 
@@ -180,9 +181,12 @@ def show_favourites(request, slug):
         news_list = []
         for fav_news in fav_list:
             news_list.append(News.objects.get(id=fav_news.fav_news.id))
-        context.update({'news_list': news_list})
+        if len(news_list) == 0:
+            context.update({'error': _('Вы пока ничего не добавили в избранное!')})
+        else:
+            context.update({'news_list': news_list})
     except:
-        context.update({'error': 'Войдите в систему чтобы получить доступ к избранным новостям!'})
+        context.update({'error': _('Войдите в систему чтобы получить доступ к избранным новостям!')})
     return render(request, 'news/show_favs.html', context)
 
 
@@ -193,7 +197,7 @@ def profile_avatar(request):
             user.profile.avatar = request.FILES['avatar']
             user.save()
     except:
-        raise Http404("Возникла ошибка! Возможно этот пользователь был удален!")
+        raise Http404(_("Возникла ошибка! Возможно этот пользователь был удален!"))
     return HttpResponseRedirect(reverse('news:profile', args=(request.user.username,)))
 
 
@@ -214,7 +218,7 @@ def section_news(request, section):
         latest_news = News.objects.order_by('-publication_date')[:4]
         return render(request, 'news/section_news.html', {'news_list': news_list, 'latest_comments': latest_comments, 'latest_news': latest_news})
     except:
-        raise Http404('Список новостей пуст')
+        raise Http404(_('Список новостей пуст'))
 
 
 def like(request, news_id):
@@ -234,6 +238,6 @@ def like(request, news_id):
                 return HttpResponseRedirect(reverse('news:one_by_one', args=(news_id,)))
         else:
             return render(request, 'registration/login.html',
-                          {'help_msg': "Войдите на сайт чтобы получить возможность ставить лайк на пост"})
+                          {'help_msg': _("Войдите на сайт чтобы получить возможность ставить лайк на пост")})
     except:
-        raise Http404("Произошла ошибка в ходе выполнения действия!")
+        raise Http404(_("Произошла ошибка в ходе выполнения действия!"))
